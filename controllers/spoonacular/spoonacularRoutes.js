@@ -8,14 +8,18 @@ require("dotenv").config();
 
 router.get("/:mealName", async (req, res) => {
   try {
+
+  // Using async await to request user input from spoon 
     const spoonRecipeData = await fetch(
       `${spoonacularBaseUrl}?apiKey=${process.env.API_KEY}&query=${mealName}&addRecipeInformation=true`
     );
 
+    // Information mapped and adapted to "plain" so we can render to {{{}}}
     const spoonRecipes = spoonRecipeData.map((spoonRecipe) =>
       spoonRecipe.get({ plain: true })
     );
 
+    // Render spoonRecipes data to main recipe-search.handlebars
     res.render("recipe-search", {
       spoonRecipes,
       // do we want this feature to require logging in?

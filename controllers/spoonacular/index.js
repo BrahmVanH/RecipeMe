@@ -4,4 +4,5 @@ const sortSpoonApiData = (spoonResponse) => {};
 
 const renderSpoonacularData = (sortedSpoonResponse) => {};
 
-// Send to view
+// Don't think we will need this
+

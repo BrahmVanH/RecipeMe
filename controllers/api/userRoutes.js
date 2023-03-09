@@ -20,14 +20,20 @@ router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
 
-    if(!userData) {
-      res.status(400).json({ message: 'No user found with that password/email combination, please try again'});
+    if (!userData) {
+      res.status(400).json({
+        message:
+          "No user found with that password/email combination, please try again",
+      });
       return;
     }
     const validatePassword = await userData.checkPassword(req.body.password);
 
     if (!validatePassword) {
-      res.status(400).json({ message: 'No user found with that password/email combination, please try again'});
+      res.status(400).json({
+        message:
+          "No user found with that password/email combination, please try again",
+      });
       return;
     }
 
@@ -35,7 +41,7 @@ router.post("/login", async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      res.json({ user: userData, message: 'Welcome!'});
+      res.json({ user: userData, message: "Welcome!" });
     });
   } catch (err) {
     res.status(400).json(err);

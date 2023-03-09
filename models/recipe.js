@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Recipe extends Model {}
 
@@ -16,21 +16,21 @@ Recipe.init(
       allowNull: false,
     },
     category: {
-        type: DataTypes.ENUM('Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert'),
-        allowNull: false,
+      type: DataTypes.ENUM("Breakfast", "Lunch", "Dinner", "Snack", "Dessert"),
+      allowNull: false,
     },
     description: {
-        type: DataTypes.TEXT,
+      type: DataTypes.TEXT,
     },
     instructions: {
-        type: DataTypes.TEXT,
+      type: DataTypes.TEXT,
     },
     user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'user',
-          key: 'id',
-        },
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user",
+        key: "id",
+      },
     },
   },
   {
@@ -38,7 +38,7 @@ Recipe.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'recipe',
+    modelName: "recipe",
   }
 );
 

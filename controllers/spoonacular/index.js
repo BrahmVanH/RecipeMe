@@ -1,11 +1,7 @@
-const spoonacularRoutes = require('./spoonacularRoutes')
+const spoonacularRoutes = require("./spoonacularRoutes");
 
-const sortSpoonApiData = (spoonResponse) => {
-    
-}
+const sortSpoonApiData = (spoonResponse) => {};
 
-const renderSpoonacularData = (sortedSpoonResponse) => {
-    
-}
+const renderSpoonacularData = (sortedSpoonResponse) => {};
 
 // Send to view

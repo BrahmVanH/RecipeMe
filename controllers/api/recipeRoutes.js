@@ -4,6 +4,9 @@ const { Recipe } = require("../../models");
 
 router.get("/", async (req, res) => {
   try {
+
+    // Give us all recipes in db
+    // Should we add user_id's to recipe cards to say who created?
     const recipeData = await Recipe.findAll({
       include: [
         {
@@ -19,6 +22,8 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Create a new recipe in database
+// We''l need to create a form that takes in all of this info from user and makes a fetch to this route
 router.post("/", async (req, res) => {
   try {
     const recipeData = await Recipe.create({
@@ -34,7 +39,7 @@ router.post("/", async (req, res) => {
     res.status(400).json(err);
   }
 });
-
+// ^^^ update
 router.put("/", async (req, res) => {
   try {
     const recipeData = await Recipe.update({
@@ -49,6 +54,8 @@ router.put("/", async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+// Maybe add a button to each card that creates a fetch using the id listed in the card information href='/api/recipe/${recipe_id}' can you add template literals in handlebars?
 
 router.delete("/:id", withAuth, async (req, res) => {
   try {

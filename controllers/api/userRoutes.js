@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
+
 router.post("/", async (req, res) => {
   try {
     // async await function to create a new user in our database
@@ -39,7 +40,7 @@ router.post("/login", async (req, res) => {
     if (!validatePassword) {
       res.status(400).json({
         message:
-          "No user found with that password/email combination, please try again",
+          "No user found with that password/email combination, please try again or create an account",
       });
       return;
     }

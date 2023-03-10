@@ -1,55 +1,66 @@
 const router = require("express").Router();
 const withAuth = require("../../utils/auth");
-const { Recipe } = require("../../models");
+const { Recipe, User } = require("../../models");
 
 router.get("/", async (req, res) => {
   try {
-
     // Give us all recipes in db
     // Should we add user_id's to recipe cards to say who created?
     const recipeData = await Recipe.findAll({
       include: [
         {
-          model: Recipe,
-          attributes: ["recipe_name", "category"],
+          model: User,
+          attributes: ["user_name"],
         },
       ],
     });
 
-    res.status(200).json(newProject);
+    res.status(200).json(recipeData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.get("/:name", async (req, res) => {
+  try {
+    // Find a single recipe by name
+    // Wire to search bar
+    const recipeData = await Recipe.findOne({ where: { name: req.body.name } });
+
+    res.status(200).json(recipeData);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
 // Create a new recipe in database
-// We''l need to create a form that takes in all of this info from user and makes a fetch to this route
+// We'll need to create a form that takes in all of this info from user and makes a fetch to this route
 router.post("/", async (req, res) => {
   try {
-    const recipeData = await Recipe.create({
-      recipe_name: req.body.recipe_name,
-      category: req.body.category,
-      description: req.body.description,
-      instructions: req.body.instructions,
-      user_id: req.session.user_id,
-    });
+    const recipeData = await Recipe.create(req.body);
 
-    res.status(200).json(newProject);
+    /* post body: {
+      "recipe_name": "",
+      "recipe_category": "",
+      "recipe_category": "",
+      "recipe_description": "",
+      "recipe_instructions": "",
+    } */
+
+    res.status(200).json(recipeData);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 // ^^^ update
-router.put("/", async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
-    const recipeData = await Recipe.update({
-      recipe_name: req.body.recipe_name,
-      category: req.body.category,
-      description: req.body.description,
-      instructions: req.body.instructions,
-      user_id: req.session.user_id,
+    const recipeData = await Category.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
     });
-    res.status(200).json(newProject);
+    res.status(200).json(recipeData);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -65,7 +76,7 @@ router.delete("/:id", withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-    res.status(200).json(newProject);
+    res.status(200).json(recipeData);
   } catch (err) {
     res.status(400).json(err);
   }

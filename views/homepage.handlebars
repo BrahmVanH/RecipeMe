@@ -1,4 +1,7 @@
-{{!-- html for the nav bar (links for "Sign up" and "Log In") and the carousel of images/search box. Include spaces to drop in cards from "api-cards.handlebars" --}}
+{{!-- html for 2 separate home pages:
+  1. if not logged in: nav bar (links for "Sign up" and "Log In") and the carousel/search box. Includes spots to place in the cards from api-cards.handlebars
+  
+  2. if logged in: nav bar (Welcome message, links for "Create Recipe" and "View Recipes", and "Log Out") and the carousel/search box. Includes spots to place in the cards from "api-cards.handlebars" AND "recipe-cards.handlebars" --}}
 <template id="card-template">
   {{#items}}
   <div class="card">
@@ -12,7 +15,7 @@
     </div>
   </div>
   
-  <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="myModal{{@index}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">

@@ -19,6 +19,9 @@ Recipe.init(
       type: DataTypes.ENUM("Breakfast", "Lunch", "Dinner", "Snack", "Dessert", "Condiment"),
       allowNull: false,
     },
+    recipe_image: {
+      type: DataTypes.STRING,
+    },
     description: {
       type: DataTypes.TEXT,
     },

@@ -2,6 +2,24 @@
   1. if not logged in: nav bar (links for "Sign up" and "Log In") and the carousel/search box. Includes spots to place in the cards from api-cards.handlebars
   
   2. if logged in: nav bar (Welcome message, links for "Create Recipe" and "View Recipes", and "Log Out") and the carousel/search box. Includes spots to place in the cards from "api-cards.handlebars" AND "recipe-cards.handlebars" --}}
+
+{{!-- navbar links that display on the homepage--}}
+{{#if loggedIn}}
+<div class="navbar-brand">
+      <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Hello, {{username}}</a>
+      <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Create a Recipe</a>
+      <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">View Recipes</a>
+      <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Log Out</a>
+</div>
+{{else}}
+<div class="navbar-brand">
+      <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Sign Up</a>
+      <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Log In</a>
+</div>
+{{/if}}
+
+
+
 <template id="card-template">
   {{#items}}
   <div class="card">

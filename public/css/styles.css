@@ -1,3 +1,44 @@
+/* blue: #10AAFF */
+/* yellow: #FFBE2C */
+
 * {
   margin: 0;
-  }
+  font-family: 'Work Sans', sans-serif;
+} 
+
+.navbar {
+  display: flex;
+  background-color: #FFBE2C;
+  background-image: URL(../images/spoon3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 150px;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.navbar-brand {
+  display: flex;
+  flex-wrap:inherit;
+  height: 46px;
+  /* align-content: space-around;
+  padding-top: 8px; */
+  font-size: 16px;
+}
+
+.ms-3 {
+  margin-left: 10px;
+}
+
+.welcome {
+  font-family: 'Delius', cursive;
+  font-weight: 600;
+}
+
+i {
+  font-weight: 300;
+}
+
+footer {
+  background-color: #FFBE2C;
+}

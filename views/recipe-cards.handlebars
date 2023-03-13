@@ -1,3 +1,17 @@
 {{!-- html for a singular card that will display on the all-recipes page and homepage after user logs in. This connect to "homepage.handlebars" & "all-recipes.handlebars" --}}
 
 {{!-- TODO: create card with recipe.name, view button, background image, calories??, food category?? --}}
+<div class="row row-cols-1 row-cols-md-3 m-3 g-4">
+  {{#each}}
+    <div class="col">
+        <div class="card h-100">
+          <img src="{{image}}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title"><strong>{{Recipe Name}}</strong></h5>
+            <p>{{category}} <i>{{calories/serving}}</i></p>
+            <a href="#" class="btn btn-primary">View Recipe</a>
+          </div>
+        </div>
+    </div>
+  {{/each}}
+</div>

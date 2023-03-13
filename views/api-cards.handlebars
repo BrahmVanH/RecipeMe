@@ -1,3 +1,17 @@
 {{!-- html for a singular card for the api recipes that will display on the homepage (different style cards than the user's personal recipe cards. These cards connect to "homepage.handlebars") --}}
 
 {{!-- TODO: create card --}}
+<div class="row row-cols-1 row-cols-md-3 m-3 g-4">
+  {{#each}}
+    <div class="col">
+        <div class="card h-100">
+          <img src="{{image}}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title"><strong>{{Recipe Name}}</strong></h5>
+            <p>{{category}} <i>{{calories/serving}}</i></p>
+            <a href="#" class="btn btn-primary">View Recipe</a>
+          </div>
+        </div>
+    </div>
+  {{/each}}
+</div>

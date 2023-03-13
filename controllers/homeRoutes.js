@@ -7,8 +7,26 @@ router.get("/", async (req, res) => {
     // Decide what data we'd like to include from our API/other APIs
     // Render those items to homepage
 
-    res.status(200).json(newProject);
+    const recipeData = await Recipe.findAll({
+      offset: 1,
+      limit: 3,
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+
+    res.render('homepage', {
+      recipes,
+      logged_in: req.session.logged_in
+    });
   } catch (err) {
     res.status(400).json(err);
   }
 });
+
+module.exports = router;

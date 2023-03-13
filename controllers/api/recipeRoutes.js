@@ -21,11 +21,11 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:name", async (req, res) => {
+router.get("/:recipeName", async (req, res) => {
   try {
     // Find a single recipe by name
     // Wire to search bar
-    const recipeData = await Recipe.findOne({ where: { name: req.body.name } });
+    const recipeData = await Recipe.findOne({ where: { name: req.body.recipeName } });
 
     res.status(200).json(recipeData);
   } catch (err) {
@@ -42,9 +42,9 @@ router.post("/", async (req, res) => {
     /* post body: {
       "recipe_name": "",
       "recipe_category": "",
-      "recipe_category": "",
-      "recipe_description": "",
+      "recipe_ingredients": "",
       "recipe_instructions": "",
+      "recipe_image": "",
     } */
 
     res.status(200).json(recipeData);

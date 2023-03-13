@@ -4,18 +4,11 @@
 
 
 {{!-- container for cards --}}
-{{!-- TODO: Make grid sytem instead of just a container (i think)--}}
-<div class="row row-cols-1 row-cols-md-3 m-3 g-4">
-  {{#each}}
-    <div class="col">
-        <div class="card h-100">
-          <img src="{{image}}" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title"><strong>{{Recipe Name}}</strong></h5>
-            <p>{{category}} <i>{{calories/serving}}</i></p>
-            <a href="#" class="btn btn-primary">View Recipe</a>
-          </div>
+{{!-- TODO: Make grid sytem instead of just a container (i think)
+<div class="container">
+    <div class="row">
+        <div class="col-xl-4 offset-xl-0">
+        {{!-- card template goes here --}}
         </div>
     </div>
-  {{/each}}
-</div>
+</div> --}}

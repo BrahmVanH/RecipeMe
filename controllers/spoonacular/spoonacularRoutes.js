@@ -19,7 +19,7 @@ router.get("/:mealName", async (req, res) => {
     );
 
     // Render spoonRecipes data to main recipe-search.handlebars
-    res.render("recipe-search", {
+    res.render("recipe-cards", {
       spoonRecipes,
       // do we want this feature to require logging in?
       // logged_in: req.session.logged_in

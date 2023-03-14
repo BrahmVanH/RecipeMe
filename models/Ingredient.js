@@ -11,10 +11,7 @@ Ingredient.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    ingredient_name: {
-      type: DataTypes.STRING,
-    },
-    ingredient_amount: {
+    ingredient_info: {
       type: DataTypes.STRING,
     },
     recipe_id: {

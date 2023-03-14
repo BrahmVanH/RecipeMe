@@ -58,28 +58,19 @@ const createRecipeFormHandler = async (event) => {
   const imageInput = document.getElementById('recipeImageUpload').value.trim();
   const instructions = document.getElementById('instructionInput').value.trim();
 
-  const ingredientsInput = document.querySelectorAll('.ingredient');
-  const ingredients = ingredientsInput.map((ingredient) =>
-    ingredient.value.trim()
-  );
-  // prep for user inputs
-  //  to lowercase, normalize spaces between words,
-  for (const ingredient of ingredients) {
-    // Loop over each item, or map the ingredients object?
-    // If we end up doing anything more than just string methods,
-    //  probably use the loop. We'll want to create a POST to the db
-  }
+  
+  
 
   // Incomplete.... need to create a function to handle the image upload to put in here
   // need to decide at which point we want to include user Id... in this function,
   // Or in the route itself.
-  if (name && category && instructions && ingredients && imageInput) {
+  if (name && category && instructions && ingredientsArray && imageInput) {
     const response = await fetch('/api/recipe/:recipeName', {
       method: 'POST',
       body: JSON.stringify({
         recipeName,
         recipeCategory,
-        ingredients,
+        ingredientsArray,
         instructions,
         image,
       }),
@@ -94,6 +85,45 @@ const createRecipeFormHandler = async (event) => {
     }
   }
 };
+
+const submitIngredients = async (event) => {
+  const ingredientsInput = document.querySelectorAll('.ingredient');
+  const ingredients = ingredientsInput.map((ingredient) =>
+    ingredient.value.trim()
+  );
+  // prep for user inputs
+  //  to lowercase, normalize spaces between words,
+  for (const ingredient of ingredients) {
+    if (ingredient) {
+    const response = await fetch('/api/ingredient/:ingredient', {
+      method: 'POST',
+      body: JSON.stringify({ ingredient }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    } else {
+      Alert("You must enter at least one ingredient!")
+    };
+  }
+  if (response.ok) {
+      // If login was successful, redirect to the profile page
+      getIngredientsArray(ingredients);
+    } else {
+      Alert(response.statusText);
+    }
+};
+
+const getIngredientsArray = async (ingredients) => {
+
+  const ingredientId = await fetch('/api/ingredients/:ingredientInfo', {
+    method: "GET",
+    body: JSON.stringify({ ingredient })
+  })
+}
+
+
+
+
+
 
 // We can probably come up with a better name for this function
 

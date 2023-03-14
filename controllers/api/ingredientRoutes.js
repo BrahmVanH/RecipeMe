@@ -7,15 +7,14 @@ router.get("/", async (req, res) => {
     // Find a single ingredient by name
     // Wire to search bar for individual ingredient
     // Include in recipe search?
-    const recipeData = await Ingredient.findOne({
-      where: { name: req.body.name },
+    const ingredientData = await Ingredient.findAll({
       include: {
         model: Recipe,
         attributes: [ 'recipe_name']
       }
     });
 
-    res.status(200).json(recipeData);
+    res.status(200).json(ingredientData);
   } catch (err) {
     res.status(400).json(err);
   }

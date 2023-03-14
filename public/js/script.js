@@ -116,13 +116,14 @@ const addIngredientInputEl = async (event) => {
 // ADD MORE INGREDIENTS BUTTON
 
 document
-  .querySelector('.create-account-form')
-  .addEventListener('submit', createAccountFormHandler);
-
-document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
 
+/*document
+  .querySelector('.create-account-form')
+  .addEventListener('submit', createAccountFormHandler);
+
+
 document
   .querySelector('#addMoreIngredientsButton')
-  .addEventListener('click', addIngredientInputEl);
+  .addEventListener('click', addIngredientInputEl); */

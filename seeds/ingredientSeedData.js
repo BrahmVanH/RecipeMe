@@ -2,43 +2,35 @@ const { Ingredient } = require("../models");
 
 const ingredientData = [
   {
-    ingredient_name: "almond butter",
-    ingredient_amount: "2 tablespoons",
+    ingredient_name: 'almond butter',
     recipe_id: 1,
   },
   {
-    ingredient_name: "jelly (any flavor)",
-    ingredient_amount: "1 tablespoon",
+    ingredient_info: '1 tablespoon jelly (any flavor)',
     recipe_id: 1,
   },
   {
-    ingredient_name: "bread (any kind of sliced bread)",
-    ingredient_amount: "2 slices",
+    ingredient_name: '2 slices bread (any kind of sliced bread)',
     recipe_id: 1,
   },
   {
-    ingredient_name: "eggs",
-    ingredient_amount: "2 whole",
+    ingredient_name: '2 whole eggs',
     recipe_id: 2,
   },
   {
-    ingredient_name: "salt",
-    ingredient_amount: "1/8 teaspoon, or to taste",
+    ingredient_name: '1/8 teaspoon, or to taste salt',
     recipe_id: 2,
   },
   {
-    ingredient_name: "pepper",
-    ingredient_amount: "1/2 teaspoon, or to taste",
+    ingredient_name: '1/2 teaspoon, or to taste pepper',
     recipe_id: 2,
   },
   {
-    ingredient_name: "sliced apple",
-    ingredient_amount: "1",
+    ingredient_name: '1 sliced apple',
     recipe_id: 3,
   },
   {
-    ingredient_name: "peanut butter",
-    ingredient_amount: "2 tablespoons",
+    ingredient_name: '2 tablespoons peanut butter',
     recipe_id: 3,
   },
 ];

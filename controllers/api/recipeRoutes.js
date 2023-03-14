@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../../utils/auth");
-const { Recipe, User, Ingredient } = require("../../models");
+const { Recipe, User, Ingredient, RecipeIngredient } = require("../../models");
 
 
 // THIS ONE WORKS -- get all recipes 
@@ -69,6 +69,41 @@ router.post('/', async (req, res) => {
 } catch (err) {
   res.status(400).json(err);
 }
+});
+
+// This will create a RecipeIngredient table entry that will
+// allow us to associate recipes with ingredients 
+
+router.post("/", (req, res) => {
+
+  /* req.body
+    recipeName: "",
+    recipeCategory: "",
+    ingredientIds: "",
+    instructions: "",
+    image: ""
+
+    */
+  Recipe.create(req.body)
+    .then((recipe) => {
+
+      if (req.body.ingredientIds.length) {
+        const recipeIngredientIdArray = req.body.ingredientIds.map((ingredient_id) => {
+          return {
+            recipe_id: recipe.id,
+            ingredient_id,
+          };
+        });
+        return RecipeIngredient.bulkCreate(recipeIngredientIdArray);
+      }
+
+      res.status(200).json(product);
+    })
+    .then((recipeIngredientIds) => res.status(200).json(recipeIngredientIds))
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
 });
 
 

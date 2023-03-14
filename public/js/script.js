@@ -48,29 +48,24 @@ const loginFormHandler = async (event) => {
   }
 };
 
-const createRecipeFormHandler = async (event) => {
-  event.preventDefault();
+const createRecipeFormHandler = async (ingredientIds) => {
 
   const name = document.getElementById('recipeNameInput').value.trim();
-  const category = document
-    .getElementById('recipeCategorySelector')
-    .value.trim();
+  const category = document.getElementById('recipeCategorySelector').value.trim();
   const imageInput = document.getElementById('recipeImageUpload').value.trim();
   const instructions = document.getElementById('instructionInput').value.trim();
-
-  
   
 
   // Incomplete.... need to create a function to handle the image upload to put in here
   // need to decide at which point we want to include user Id... in this function,
   // Or in the route itself.
-  if (name && category && instructions && ingredientsArray && imageInput) {
+  if (name && category && instructions && ingredientIds && imageInput) {
     const response = await fetch('/api/recipe/:recipeName', {
       method: 'POST',
       body: JSON.stringify({
         recipeName,
         recipeCategory,
-        ingredientsArray,
+        ingredientIds,
         instructions,
         image,
       }),
@@ -107,22 +102,29 @@ const submitIngredients = async (event) => {
   if (response.ok) {
       // If login was successful, redirect to the profile page
       getIngredientsArray(ingredients);
+
     } else {
       Alert(response.statusText);
     }
 };
 
-const getIngredientsArray = async (ingredients) => {
+const getIngredientArray = async (ingredients) => {
 
-  const ingredientId = await fetch('/api/ingredients/:ingredientInfo', {
+  ingredientIds = [];
+  for (const ingredient of ingredients) {
+  const ingredientData = await fetch('/api/ingredients/:ingredient', {
     method: "GET",
     body: JSON.stringify({ ingredient })
-  })
+  });
+  ingredientIds.push(ingredientData.id);
+  }
+
+  if (response.ok) {
+    createRecipeFormHandler(ingredientIds);
+  } else {
+    Alert(response.statusText);
+  }
 }
-
-
-
-
 
 
 // We can probably come up with a better name for this function
@@ -149,11 +151,11 @@ document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
 
-/*document
+document
   .querySelector('.create-account-form')
   .addEventListener('submit', createAccountFormHandler);
 
 
 document
   .querySelector('#addMoreIngredientsButton')
-  .addEventListener('click', addIngredientInputEl); */
+  .addEventListener('click', addIngredientInputEl); 

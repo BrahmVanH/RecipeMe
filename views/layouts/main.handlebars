@@ -28,40 +28,24 @@
         {{#if loggedIn}}
         <div class="navbar-brand">
               <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Hello, {{user.name}}</a>
-              <button type="button" class="open-modal" data-open="modal1">Create a Recipe</button>
+              <button type="button" class="open-modal" data-open="(make this the id of modal)">Create a Recipe</button>
               {{!-- <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Create a Recipe</a> --}}
               <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">View Recipes</a>
               <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Log Out</a>
         </div>
-        {{/if}}
         {{else}}
         <div class="navbar-brand">
-              <button type="button" class="open-modal" data-open="modal1">Sign Up</button>
-              {{> create-account-modal}}
+              <button type="button" class="open-modal" data-open="(make this the id of modal)">Sign Up</button>
               {{!-- <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Sign Up</a> --}}
-              <button type="button" class="open-modal" data-open="modal1">Log In</button>
-              {{> login-modal}}
+              <button type="button" class="open-modal" data-open="(make this the id of modal)">Log In</button>
               {{!-- <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Log In</a> --}}
         </div>
+        {{/if}}
       </nav> 
   </header>
 
   <main>
     {{{ body }}}
-    {{#if loggedIn}}
-    {{#each recipes as |recipe|}} {{! #each helps to over things }}
-    {{> recipe-cards}} {{! forward information into a partial, the "recipe-cards" handlebars file }}
-    {{/each}}
-    {{!-- spoonacular recipes if we want to use them
-    {{#each spoonRecipes as |spoonRecipe|}} {{! #each helps to over things }}
-    {{> api-cards}} {{! forward information into a partial, the "api-cards" handlebars file }}
-    {{/each}} --}}
-    {{/if}}
-    {{else}}
-    {{!-- spoonacular recipes if we want to use them
-    {{#each spoonRecipes as |spoonRecipe|}} {{! #each helps to over things }}
-    {{> api-cards}} {{! forward information into a partial, the "api-cards" handlebars file }}
-    {{/each}} --}}
   </main>
 
   <footer>

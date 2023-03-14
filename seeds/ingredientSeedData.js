@@ -1,11 +1,10 @@
-const { Ingredient } = require('../models');
+const { Ingredient } = require("../models");
 
 const ingredientData = [
   {
     ingredient_name: "almond butter",
     ingredient_amount: "2 tablespoons",
     recipe_id: 1,
-    
   },
   {
     ingredient_name: "jelly (any flavor)",
@@ -42,7 +41,7 @@ const ingredientData = [
     ingredient_amount: "2 tablespoons",
     recipe_id: 3,
   },
-]
+];
 
 const seedIngredient = () => Ingredient.bulkCreate(ingredientData);
 

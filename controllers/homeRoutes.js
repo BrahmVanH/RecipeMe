@@ -13,14 +13,14 @@ router.get("/", async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ["name"],
         },
       ],
     });
 
     const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render("homepage", {
       recipes,
       //logged_in: req.session.logged_in
     });

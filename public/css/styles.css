@@ -9,7 +9,7 @@
 .navbar {
   display: flex;
   background-color: #FFBE2C;
-  background-image: URL(../images/spoon3.png);
+  background-image: URL(/images/spoon2.png);
   background-repeat: no-repeat;
   background-size: cover;
   height: 150px;

@@ -25,32 +25,36 @@
     {{!-- TODO: Create header --}}
       <nav class="navbar">
         {{!-- navbar links that display on the homepage--}}
-        {{#if loggedIn}}
+        {{!-- {{#if loggedIn}} --}}
         <div class="navbar-brand">
               <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Hello, {{user.name}}</a>
-              <button type="button" class="open-modal" data-open="(make this the id of modal)">Create a Recipe</button>
-              {{!-- <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Create a Recipe</a> --}}
+                          <button type="button" class="open-modal navbar-brand" data-open="#createRecipe">Create a Recipe</button>
               <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">View Recipes</a>
               <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Log Out</a>
         </div>
-        {{else}}
+        {{!-- {{else}} --}}
         <div class="navbar-brand">
-              <button type="button" class="open-modal" data-open="(make this the id of modal)">Sign Up</button>
+              <button type="button" class="open-modal navbar-brand" data-open="#signUp">Sign Up</button>
               {{!-- <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Sign Up</a> --}}
-              <button type="button" class="open-modal" data-open="(make this the id of modal)">Log In</button>
+              <button type="button" class="open-modal navbar-brand" data-open="#logIn">Log In</button>
               {{!-- <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Log In</a> --}}
         </div>
-        {{/if}}
+        {{!-- {{/if}} --}}
       </nav> 
   </header>
 
   <main>
     {{{ body }}}
+    {{!-- {{> login-modal}} --}}
+    {{!-- {{> create-account-modal}} --}}
+    {{> create-recipe-modal}}
   </main>
 
   <footer>
     {{!-- TODO: Create footer --}}
   </footer>
+{{!-- src script.js --}}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 
 </html>

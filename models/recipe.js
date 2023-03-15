@@ -19,10 +19,10 @@ Recipe.init(
       type: DataTypes.ENUM("Breakfast", "Lunch", "Dinner", "Snack", "Dessert", "Condiment"),
       allowNull: false,
     },
-    
-    /*description: {
+    ingredients: {
       type: DataTypes.TEXT,
-    }, */
+      allowNull: false,
+    },
     instructions: {
       type: DataTypes.TEXT,
     },

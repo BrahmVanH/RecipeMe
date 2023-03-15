@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../../utils/auth");
-const { Ingredient, Recipe } = require("../../models");
+// const { Ingredient, Recipe } = require("../../models");
 
 router.get("/:ingredient", async (req, res) => {
   try {
@@ -8,7 +8,7 @@ router.get("/:ingredient", async (req, res) => {
     // Wire to search bar for individual ingredient
     // Include in recipe search?
     const ingredient = await Ingredient.findOne({
-      where: { ingredientInfo: req.body.ingredient }
+      where: { ingredientInfo: req.body.ingredient },
     });
 
     res.status(200).json(ingredient);
@@ -17,7 +17,7 @@ router.get("/:ingredient", async (req, res) => {
   }
 });
 
-router.post('/:ingredient', async (req, res) => {
+router.post("/:ingredient", async (req, res) => {
   try {
     const ingredientData = await Ingredient.create(req.body);
 

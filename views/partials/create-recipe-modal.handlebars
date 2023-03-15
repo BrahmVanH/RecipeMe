@@ -1,85 +1,54 @@
-
-
-{{!-- <!-- Modal -->
-<div class="modal fade" id="createRecipe" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        lfdkalfnlkdakf kdjfdoafhdjkahfdlhif
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div> --}}
-
 <div id="createRecipe" class="modal fade show" role="dialog" tabindex="-1" style="display: block;">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <form class="text-center" method="post">
-                  <div class="modal-header">
-                <h2>Log in</h2><button class="btn-close" type="button" data-bs-dismiss="modal"
+            <div class="modal-header">
+                <h2>Create a Recipe</h2><button class="btn-close" type="button" data-bs-dismiss="modal"
                     aria-label="Close"></button>
-                    <div class="container">
-                            <h4 class="modal-title">Create a Recipe</h4>
-                            <div class="container">
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col">
-                                        <div class="card mb-5">
-                                            <div class="card-body d-flex flex-column align-items-center"
-                                                style="width: 289px;">
-                                                <label class="form-label">Recipe Name</label>
-                                                    <input id="recipeNameInput" class="form-control" type="text" />
-                                                    <label class="form-label">Recipe category</label>
-                                                    <select id="recipeCategorySelectEl" class="form-select">
-                                                    <optgroup label="categories">
-                                                        <option selected>Breakfast</option>
-                                                        <option>Lunch</option>
-                                                        <option>Dinner</option>
-                                                        <option>Snack</option>
-                                                        <option>Condiment</option>
-                                                    </optgroup>
-                                                </select>
-                                                <label class="form-label">Recipe Photo</label>
-                                                <input id="recipeImageUpload" class="form-control" type="file" />
-                                                    <label class="form-label">Ingredients</label>
-                                                <div id="ingredientsInputContainer" class="text-end" style="width: 276.6px;margin: 0px;">
-                                                    <input class="ingredient form-control form-control-sm" type="text"
-                                                        style="width: 80%;margin: 2px;"
-                                                        placeholder="1 quart apple juice" />
-                                                    <input class="ingredient form-control form-control-sm" type="text"
-                                                        style="width: 80%;margin: 2px;"
-                                                        placeholder="3 tbsp peanut butter" />
-                                                    <input class="ingredient form-control form-control-sm" type="text"
-                                                        style="width: 80%;margin: 2px;"
-                                                        placeholder="1 cup rice" />
-                                                    <input class="ingredient form-control form-control-sm" type="text"
-                                                        style="width: 80%;margin: 2px;"
-                                                        placeholder="2 teaspoons cream" />
-                                                    <input class="ingredient form-control form-control-sm" type="text"
-                                                        style="width: 80%;margin: 2px;" placeholder="6 tablespoons crushed walnut" />
-                                                        <a id="addMoreIngredientsButton" href="#" style="font-size: 17px;">Add more ingredients</a>
-                                                    </div>
-                                                <input id="instructionInput" class="form-control form-control-sm" type="text"
-                                                    style="width: 247.6px;height: 159px;" placeholder="Instructions" />
-                                            </div>
-                                        </div>
-                                    </div>
+            </div>
+            <div class="container">
+                <div class="row d-flex">
+                    <div class="card">
+                        <div class="card-body d-flex flex-column">
+                            <label class="form-label recipe">Recipe Name</label>
+                                <input id="recipeNameInput" class="form-control" type="text" />
+                                <label class="form-label recipe">Recipe category</label>
+                                <select id="recipeCategorySelectEl" class="form-select">
+                                    <optgroup>
+                                        <option>Breakfast</option>
+                                        <option>Lunch</option>
+                                        <option>Dinner</option>
+                                        <option>Snack</option>
+                                        <option>Dessert</option>
+                                    </optgroup>
+                                </select>
+                            <label class="form-label recipe">Image</label>
+                            <input id="recipeImageUpload" class="form-control" type="file" />
+                                <label class="form-label recipe">Ingredients</label>
+                            <div id="ingredientsInputContainer" class="text-end">
+                                <input class="ingredient form-control form-control-sm" type="text"
+                                    style="width: 80%;margin: 2px;"
+                                    placeholder="1 quart apple juice" />
+                                <input class="ingredient form-control form-control-sm" type="text"
+                                    style="width: 80%;margin: 2px;"
+                                    placeholder="3 tbsp peanut butter" />
+                                <input class="ingredient form-control form-control-sm" type="text"
+                                    style="width: 80%;margin: 2px;"
+                                    placeholder="1 cup rice" />
+                                <input class="ingredient form-control form-control-sm" type="text"
+                                    style="width: 80%;margin: 2px;"
+                                    placeholder="2 teaspoons cream" />
+                                <input class="ingredient form-control form-control-sm" type="text"
+                                    style="width: 80%;margin: 2px;" placeholder="6 tablespoons crushed walnut" />
+                                    <a id="addMoreIngredientsButton" href="#" style="font-size: 17px;">Add more ingredients</a>
                                 </div>
-                            </div>
-                    </div><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <label class="form-label recipe">Instructions</label>
+                            <input id="instructionInput" class="form-control form-control-sm" type="text"
+                                style="width: 247.6px;height: 159px;" placeholder="Instructions" />
+                        </div>
+                    </div>
                 </div>
-            </form>
-            <div class="modal-footer"><button class="btn btn-light" type="button"
-                    data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button>
+            </div>
+            <div class="modal-footer"><button class="btn btn-primary" type="button">Save</button>
             </div>
         </div>
     </div>

@@ -2,8 +2,7 @@ const router = require("express").Router();
 const withAuth = require("../../utils/auth");
 const { Recipe, User, Ingredient, RecipeIngredient } = require("../../models");
 
-
-// THIS ONE WORKS -- get all recipes 
+// THIS ONE WORKS -- get all recipes
 router.get("/", async (req, res) => {
   try {
     const recipeData = await Recipe.findAll({
@@ -25,10 +24,8 @@ router.get("/", async (req, res) => {
   }
 });
 
-
-
-// THIS ONE WORKS -- Get recipe by ID 
-router.get('/:id', async (req, res) => {
+// THIS ONE WORKS -- Get recipe by ID
+router.get("/:id", async (req, res) => {
   try {
     const recipeData = await Recipe.findByPk(req.params.id, {
       include: [
@@ -40,11 +37,11 @@ router.get('/:id', async (req, res) => {
           model: Ingredient,
           attributes: ["ingredient_amount", "ingredient_name"],
         },
-      ]
+      ],
     });
 
     if (!recipeData) {
-      res.status(404).json({ message: 'No recipe found with that id!' });
+      res.status(404).json({ message: "No recipe found with that id!" });
       return;
     }
 
@@ -54,28 +51,26 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-
 // THIS ONE WORKS WITHOUT THE USER_ID PART FOR NOW (I think bc when testing, there isn't a session user id?)
-router.post('/', async (req, res) => {
-  try { 
+router.post("/", async (req, res) => {
+  try {
     const recipeData = await Recipe.create({
       recipe_name: req.body.recipe_name,
       category: req.body.category,
       description: req.body.description,
-      instructions: req.body.instructions
+      instructions: req.body.instructions,
       // user_id: req.session.user_id
-  });
-  res.status(200).json(recipeData)
-} catch (err) {
-  res.status(400).json(err);
-}
+    });
+    res.status(200).json(recipeData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 // This will create a RecipeIngredient table entry that will
-// allow us to associate recipes with ingredients 
+// allow us to associate recipes with ingredients
 
 router.post("/", (req, res) => {
-
   /* req.body
     recipeName: "",
     recipeCategory: "",
@@ -86,14 +81,15 @@ router.post("/", (req, res) => {
     */
   Recipe.create(req.body)
     .then((recipe) => {
-
       if (req.body.ingredientIds.length) {
-        const recipeIngredientIdArray = req.body.ingredientIds.map((ingredient_id) => {
-          return {
-            recipe_id: recipe.id,
-            ingredient_id,
-          };
-        });
+        const recipeIngredientIdArray = req.body.ingredientIds.map(
+          (ingredient_id) => {
+            return {
+              recipe_id: recipe.id,
+              ingredient_id,
+            };
+          }
+        );
         return RecipeIngredient.bulkCreate(recipeIngredientIdArray);
       }
 
@@ -106,7 +102,6 @@ router.post("/", (req, res) => {
     });
 });
 
-
 // THIS ONE WORKS
 router.put("/:id", async (req, res) => {
   try {
@@ -115,34 +110,32 @@ router.put("/:id", async (req, res) => {
         id: req.params.id,
       },
     });
-  if (!recipeData) {
-    res.status(404).json({ message: 'No recipe found with that id!' });
-    return;
+    if (!recipeData) {
+      res.status(404).json({ message: "No recipe found with that id!" });
+      return;
+    }
+    res.status(200).json(recipeData);
+  } catch (err) {
+    res.status(500).json(err);
   }
-  res.status(200).json(recipeData);
-} catch (err) {
-  res.status(500).json(err);
-}
 });
 
-
-// this first line here is the original, tested without the withAuth and that WORKED 
+// this first line here is the original, tested without the withAuth and that WORKED
 // router.delete("/:id", withAuth, async (req, res) => {
-  router.delete("/:id", async (req, res) => {
-    try {
-      const recipeData = await Recipe.destroy({
-        where: {
-          id: req.params.id
-          // temp commenting user_id out
-          // user_id: req.session.user_id,
-        },
-      });
-      res.status(200).json(recipeData);
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
-
+router.delete("/:id", async (req, res) => {
+  try {
+    const recipeData = await Recipe.destroy({
+      where: {
+        id: req.params.id,
+        // temp commenting user_id out
+        // user_id: req.session.user_id,
+      },
+    });
+    res.status(200).json(recipeData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 // NEEDS WORK
 // router.get("/:recipeName", async (req, res) => {
@@ -157,8 +150,6 @@ router.put("/:id", async (req, res) => {
 //   }
 // });
 
-
-
 // Create a new recipe in database
 // We'll need to create a form that takes in all of this info from user and makes a fetch to this route
 // router.post("/", async (req, res) => {
@@ -172,7 +163,6 @@ router.put("/:id", async (req, res) => {
 //       "recipe_instructions": "",
 //       "recipe_image": "",
 //     } */
-    
 
 //     res.status(200).json(recipeData);
 //   } catch (err) {
@@ -180,13 +170,6 @@ router.put("/:id", async (req, res) => {
 //   }
 // });
 
-
-
-
-
-
 // Maybe add a button to each card that creates a fetch using the id listed in the card information href='/api/recipe/${recipe_id}' can you add template literals in handlebars?
-
-
 
 module.exports = router;

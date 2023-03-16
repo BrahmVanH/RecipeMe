@@ -1,9 +1,9 @@
 {{!-- html for food categories to filter by. Includes spots to place in the cards from recipe-cards.handlebars --}}
-
+<div class="container" id="allRecipes">
 {{!-- TODO: Make the links for filtering through categories "Breakfast", "Lunch", "Dinner", "Dessert", "Snacks" --}}
 <nav class="navbar">
     {{!-- navbar links for food categories--}}
-    <div class="navbar-brand categories">
+    <div class="filter-categories">
             <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Breakfast</a>
             <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Lunch</a>
             <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Dinner</a>
@@ -11,9 +11,8 @@
             <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Snacks</a>
     </div>
 </nav> 
-
 {{!-- this will display each recipe card if the user has created any recipes --}}
 {{#each recipes as |recipe|}} {{! #each helps to over things }}
 {{> recipe-cards}} {{! forward information into a partial, the "recipe-cards" handlebars file }}
 {{/each}}
-{{/if}}
+</div>

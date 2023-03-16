@@ -9,12 +9,16 @@
 .navbar {
   display: flex;
   background-color: #FFBE2C;
-  background-image: URL(/images/spoon2.png);
+  background-image: URL(/images/spoon3.png);
   background-repeat: no-repeat;
   background-size: cover;
   height: 150px;
   justify-content: flex-end;
   align-items: flex-start;
+}
+
+main {
+  height: 74vh;
 }
 
 .navbar-brand {
@@ -35,10 +39,30 @@
   font-weight: 600;
 }
 
-i {
-  font-weight: 300;
+.myfooter {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 6px;
+  background-color: #FFBE2C;
+  height: 32px;
 }
 
-footer {
-  background-color: #FFBE2C;
+.team { 
+  display: flex;
+  align-items: center;
 }
+
+.footer-links {
+  text-decoration: none;
+  color: rgba(44, 44, 44, 0.997);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  padding-right: 10px;
+}
+
+
+
+

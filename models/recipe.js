@@ -16,13 +16,20 @@ Recipe.init(
       allowNull: false,
     },
     category: {
-      type: DataTypes.ENUM("Breakfast", "Lunch", "Dinner", "Snack", "Dessert", "Condiment"),
+      type: DataTypes.ENUM(
+        "Breakfast",
+        "Lunch",
+        "Dinner",
+        "Snack",
+        "Dessert",
+        "Condiment"
+      ),
       allowNull: false,
     },
-    ingredients: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
+    // ingredients: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: false,
+    // },
     instructions: {
       type: DataTypes.TEXT,
     },

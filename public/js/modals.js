@@ -16,3 +16,7 @@ $("#viewRecipeBtn").click(function () {
 $("#logInBtn").click(function () {
   $("#logInModal").click();
 });
+
+$("#createRecipeBtn").click(function () {
+  $("#createRecipeModal").click();
+});

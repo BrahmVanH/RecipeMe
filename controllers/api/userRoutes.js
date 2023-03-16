@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
-
 router.post("/", async (req, res) => {
   try {
     // async await function to create a new user in our database
@@ -14,8 +13,8 @@ router.post("/", async (req, res) => {
     // saving the input user data to session, marking user as logged in
     req.session.save(() => {
       // Not sure if this ... = userData.id is correct.
-      // If its pulling 'userData.id' from the req.body, 
-      // There wont be a user id yet, as sequelize automatically 
+      // If its pulling 'userData.id' from the req.body,
+      // There wont be a user id yet, as sequelize automatically
       // makes that once it receives the post
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -29,11 +28,10 @@ router.post("/", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-
     // Async await function to find existing user matching email input
     const userData = await User.findOne({ where: { name: req.body.username } });
 
-    // If user doesn't exist return 
+    // If user doesn't exist return
     if (!userData) {
       res.status(400).json({
         message:
@@ -43,7 +41,9 @@ router.post("/login", async (req, res) => {
     }
 
     // Use model.prototype to compare user-entered password to password in db
-    const validatePassword = await userData.checkPassword(req.body.userPassword);
+    const validatePassword = await userData.checkPassword(
+      req.body.userPassword
+    );
 
     if (!validatePassword) {
       res.status(400).json({
@@ -64,7 +64,6 @@ router.post("/login", async (req, res) => {
     res.status(400).json(err);
   }
 });
-
 
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {

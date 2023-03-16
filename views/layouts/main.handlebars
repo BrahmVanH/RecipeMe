@@ -28,7 +28,7 @@
         <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Hello, {{user.name}}</a>
         <button type="button" class="navbar-brand" id="createRecipeBtn" data-toggle="modal" data-target="#createRecipeModal">Create a Recipe</button>
 
-        <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#viewAllRecipes">View Recipes</a>
+        <a class="navbar-brand text-dark text-opacity-75 ms-3" href="/recipes">View Recipes</a>
         <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Log Out</a>
       </div>
       {{!-- {{else}} --}}
@@ -43,15 +43,38 @@
   </header>
 
   <main>
+    <div class="allRecipes">
     {{{ body }}}
     {{> login-modal}}
-    {{!-- {{> create-account-modal}} --}}
-    {{!-- {{> create-recipe-modal}} --}}
+    {{> create-account-modal}}
+    {{> create-recipe-modal}}
     {{> view-recipe-modal}}
+    </div>
   </main>
 
   <footer>
-    {{!-- TODO: Create footer --}}
+    <div class="myfooter">        
+        <img src="/images/github-mark.png" width="20" height="20" />
+      <div class="team">
+        <p>
+          <a class="footer-links" href="https://github.com/BrahmVanH"
+            >Brahm Van Houzen</a
+          ><a href="https://github.com/BrahmVanH" target="_blank"></a
+          >
+        </p>
+        <p>
+          <a class="footer-links" href="https://github.com/lsieck519"
+            >Laura Sieck</a
+          ><a href="https://github.com/lsieck519" target="_blank"></a
+          >
+        </p>
+        <p>
+          <a class="footer-links" href="https://github.com/ndallich1">Nikki Dallich</a
+          ><a href="https://github.com/ndallich1" target="_blank"></a
+          >
+        </p>
+      </div>
+    </div>
   </footer>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"

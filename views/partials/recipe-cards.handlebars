@@ -2,7 +2,7 @@
 
 {{!-- TODO: create card with recipe.name, view button, background image, calories??, food category?? --}}
 {{!-- pre-populate card with data--}}
-<div class="row row-cols-1 row-cols-md-3 m-3 g-4">
+{{!-- <div class="row row-cols-1 row-cols-md-3 m-3 g-4">
   <a href=`/recipes/{{id}}`>
     <div class="col">
       <button type="button" class="navbar-brand" id="viewRecipeBtn" data-toggle="modal" data-target="#viewRecipeModal">
@@ -12,13 +12,56 @@
             <h5 class="card-title"><strong>{{recipe_name}}</strong></h5>
             <p>{{category}} 
               {{!-- <i>{{calories/serving}}</i> --}}
-            </p>
+            {{!-- </p>
             <button type="button" class="navbar-brand" id="viewRecipeBtn" data-toggle="modal" data-target="#viewRecipeModal">View Recipe</button>
           </div>
         </div>
       </button>
     </div>
   </a>
-</div>
+</div>  --}}
 
-
+<div class="row row-cols-1 row-cols-md-3 m-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="./public/images/chicken.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title"><strong>{{Recipe Name}}</strong></h5>
+              <p>{{category}} <i>{{calories/serving}}</i></p>
+              <a href="#" class="btn btn-primary">View Recipe</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="./public/images/spaghetti.jfif"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title"><strong>{{Recipe Name}}</strong></h5>
+              <p>{{category}} <i>{{calories/serving}}</i></p>
+              <a href="#" class="btn btn-primary">View Recipe</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="./public/images/pasta.jfif"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title"><strong>{{Recipe Name}}</strong></h5>
+              <p>{{category}} <i>{{calories/serving}}</i></p>
+              <a href="#" class="btn btn-primary">View Recipe</a>
+            </div>
+          </div>
+        </div>
+      </div>

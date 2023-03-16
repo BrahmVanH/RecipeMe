@@ -126,11 +126,4 @@ const addIngredientInputEl = async (event) => {
 //   .querySelector("#create-recipe-form")
 //   .addEventListener("click", createRecipeFormHandler);
 
-// $("#viewRecipeBtn").on("click", function () {
-//   console.log("triggered");
-//   $("viewRecipeModal").modal("options");
-// });
 
-$("#viewRecipeBtn").click(function () {
-  $("#viewRecipeModal").click();
-});

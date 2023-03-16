@@ -1,7 +1,11 @@
 const createAccountBtn = document.getElementById("createAccountBtn");
 const createRecipeBtn = document.getElementById("createRecipeBtn");
+const exphbs = require("express-handlebars");
+
 // Confirm all functions are performing only one task before deleting
 // this comment, if not the case refactor
+
+
 
 const createAccountFormHandler = (event) => {
   event.preventDefault();
@@ -111,6 +115,9 @@ const addIngredientInputEl = async (event) => {
   ingredientInput.setAttribute("placeholder", "quantity and name");
   ingredientsContainer.appendChild(ingredientInput);
 };
+
+Handlebars.registerPartial("myPartial", "{{prefix}}");
+
 
 // ADD MORE INGREDIENTS BUTTON
 

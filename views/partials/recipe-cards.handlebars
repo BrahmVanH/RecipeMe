@@ -7,12 +7,12 @@
     <div class="col">
       <button type="button" class="navbar-brand" id="viewRecipeBtn" data-toggle="modal" data-target="#viewRecipeModal">
         <div class="card h-100">
-          <img src=`/images/{{recipe_image.[0].filename}}` class="card-img-top" alt=``{{recipe_image.[0].description}}` />
+          <img src="/images/{{recipe_image.[0].filename}}` class="card-img-top" alt=``{{recipe_image.[0].description}}" />
           <div class="card-body">
             <h5 class="card-title"><strong>{{recipe_name}}</strong></h5>
             <p>{{category}} 
-              {{!-- <i>{{calories/serving}}</i> --}}
-            {{!-- </p>
+              <i>{{calories/serving}}</i>
+            </p>
             <button type="button" class="navbar-brand" id="viewRecipeBtn" data-toggle="modal" data-target="#viewRecipeModal">View Recipe</button>
           </div>
         </div>
@@ -25,12 +25,12 @@
         <div class="col">
           <div class="card h-100">
             <img
-              src="./public/images/chicken.jpg"
+              src="/images/chicken.jpg"
               class="card-img-top"
               alt="..."
             />
             <div class="card-body">
-              <h5 class="card-title"><strong>{{Recipe Name}}</strong></h5>
+              <h5 class="card-title"><strong>{{RecipeName}}</strong></h5>
               <p>{{category}} <i>{{calories/serving}}</i></p>
               <a href="#" class="btn btn-primary">View Recipe</a>
             </div>
@@ -39,12 +39,12 @@
         <div class="col">
           <div class="card h-100">
             <img
-              src="./public/images/spaghetti.jfif"
+              src="/images/spaghetti.jfif"
               class="card-img-top"
               alt="..."
             />
             <div class="card-body">
-              <h5 class="card-title"><strong>{{Recipe Name}}</strong></h5>
+              <h5 class="card-title"><strong>{{RecipeName}}</strong></h5>
               <p>{{category}} <i>{{calories/serving}}</i></p>
               <a href="#" class="btn btn-primary">View Recipe</a>
             </div>
@@ -53,15 +53,15 @@
         <div class="col">
           <div class="card h-100">
             <img
-              src="./public/images/pasta.jfif"
+              src="/images/pasta.jfif"
               class="card-img-top"
               alt="..."
             />
             <div class="card-body">
-              <h5 class="card-title"><strong>{{Recipe Name}}</strong></h5>
+              <h5 class="card-title"><strong>{{RecipeName}}</strong></h5>
               <p>{{category}} <i>{{calories/serving}}</i></p>
               <a href="#" class="btn btn-primary">View Recipe</a>
             </div>
           </div>
         </div>
-      </div>
+      </div> 

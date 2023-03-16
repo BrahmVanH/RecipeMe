@@ -110,18 +110,27 @@ const addIngredientInputEl = async (event) => {
 
 // ADD MORE INGREDIENTS BUTTON
 
-document
-  .querySelector(".login-form")
-  .addEventListener("submit", loginFormHandler);
+// document
+//   .querySelector(".login-form")
+//   .addEventListener("submit", loginFormHandler);
 
-document
-  .querySelector(".create-account-form")
-  .addEventListener("submit", createAccountFormHandler);
+// document
+//   .querySelector(".create-account-form")
+//   .addEventListener("submit", createAccountFormHandler);
 
-document
-  .querySelector("#addMoreIngredientsButton")
-  .addEventListener("click", addIngredientInputEl);
+// document
+//   .querySelector("#addMoreIngredientsButton")
+//   .addEventListener("click", addIngredientInputEl);
 
-document
-  .querySelector("#create-recipe-form")
-  .addEventListener("click", createRecipeFormHandler);
+// document
+//   .querySelector("#create-recipe-form")
+//   .addEventListener("click", createRecipeFormHandler);
+
+// $("#viewRecipeBtn").on("click", function () {
+//   console.log("triggered");
+//   $("viewRecipeModal").modal("options");
+// });
+
+$("#viewRecipeBtn").click(function () {
+  $("#viewRecipeModal").click();
+});

@@ -63,7 +63,7 @@ router.post("/", async (req, res) => {
       category: req.body.category,
       description: req.body.description,
       instructions: req.body.instructions,
-      // user_id: req.session.user_id
+      user_id: req.session.user_id
     });
     res.status(200).json(recipeData);
   } catch (err) {
@@ -131,8 +131,7 @@ router.delete("/:id", async (req, res) => {
     const recipeData = await Recipe.destroy({
       where: {
         id: req.params.id,
-        // temp commenting user_id out
-        // user_id: req.session.user_id,
+        user_id: req.session.user_id,
       },
     });
     res.status(200).json(recipeData);

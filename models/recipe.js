@@ -26,10 +26,10 @@ Recipe.init(
       ),
       allowNull: false,
     },
-    // ingredients: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: false,
-    // },
+    ingredients: {
+      type: DataTypes.JSON,
+      allowNull: false,
+    },
     instructions: {
       type: DataTypes.TEXT,
     },

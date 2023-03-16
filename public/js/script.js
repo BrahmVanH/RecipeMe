@@ -1,7 +1,9 @@
+const createAccountBtn = document.getElementById("createAccountBtn");
+const createRecipeBtn = document.getElementById("createRecipeBtn");
 // Confirm all functions are performing only one task before deleting
 // this comment, if not the case refactor
 
-const createAccountFormHandler = async (event) => {
+const createAccountFormHandler = (event) => {
   event.preventDefault();
 
   const username = document.getElementById("usernameInput").value.trim();
@@ -9,7 +11,7 @@ const createAccountFormHandler = async (event) => {
   const userPassword = document.getElementById("passwordInput").value.trim();
 
   if (username && userEmail && userPassword) {
-    const response = await fetch("/api/users/login", {
+    const response = fetch("/api/user/", {
       method: "POST",
       body: JSON.stringify({ username, userEmail, userPassword }),
       headers: { "Content-Type": "application/json" },
@@ -17,7 +19,7 @@ const createAccountFormHandler = async (event) => {
 
     if (response.ok) {
       // If login was successful, redirect to the profile page
-      document.location.replace("./homepage.handlebars");
+      document.location.replace("../homepage.handlebars");
     } else {
       Alert(response.statusText);
     }
@@ -33,7 +35,7 @@ const loginFormHandler = async (event) => {
   const userPassword = document.getElementById("passwordInput").value.trim();
 
   if (username && userPassword) {
-    const response = await fetch("/api/users/login", {
+    const response = await fetch("/api/user/login", {
       method: "POST",
       body: JSON.stringify({ username, userPassword }),
       headers: { "Content-Type": "application/json" },
@@ -56,6 +58,8 @@ const createIngredientsObject = (ingredientsInput) => {
 };
 
 const createRecipeFormHandler = (event) => {
+  event.preventDefault();
+  
   const name = document.getElementById("recipeNameInput").value.trim();
   const category = document
     .getElementById("recipeCategorySelector")
@@ -110,20 +114,14 @@ const addIngredientInputEl = async (event) => {
 
 // ADD MORE INGREDIENTS BUTTON
 
-// document
-//   .querySelector(".login-form")
-//   .addEventListener("submit", loginFormHandler);
+document
+  .querySelector(".login-form")
+  .addEventListener("submit", loginFormHandler);
 
-// document
-//   .querySelector(".create-account-form")
-//   .addEventListener("submit", createAccountFormHandler);
+document
+  .querySelector("#addMoreIngredientsButton")
+  .addEventListener("click", addIngredientInputEl);
 
-// document
-//   .querySelector("#addMoreIngredientsButton")
-//   .addEventListener("click", addIngredientInputEl);
+createRecipeBtn.addEventListener("click", createRecipeFormHandler);
 
-// document
-//   .querySelector("#create-recipe-form")
-//   .addEventListener("click", createRecipeFormHandler);
-
-
+createAccountBtn.addEventListener("click", createAccountFormHandler);

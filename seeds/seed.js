@@ -10,8 +10,6 @@ const seedDatabase = async () => {
 
   await seedRecipe();
 
-  await seedIngredient();
-
   process.exit(0);
 };
 

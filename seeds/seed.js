@@ -1,19 +1,16 @@
-const sequelize = require('../config/connection');
+const sequelize = require("../config/connection");
 
-const seedUser = require('./userSeedData');
-const seedRecipe = require('./recipeSeedData');
-const seedIngredient = require('./ingredientSeedData');
-
+const seedUser = require("./userSeedData");
+const seedRecipe = require("./recipeSeedData");
 
 const seedDatabase = async () => {
+  await sequelize.sync({ force: true });
 
-    await sequelize.sync({ force: true });
+  await seedUser();
 
-    await seedUser();
+  await seedRecipe();
 
-    await seedRecipe();
-
-    await seedIngredient();
+  await seedIngredient();
 
   process.exit(0);
 };

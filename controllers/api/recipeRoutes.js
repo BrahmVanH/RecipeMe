@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../../utils/auth");
-const { Recipe, User, Ingredient, RecipeIngredient } = require("../../models");
+const { Recipe, User } = require("../../models");
 
 // THIS ONE WORKS -- get all recipes
 router.get("/", async (req, res) => {
@@ -11,14 +11,15 @@ router.get("/", async (req, res) => {
           model: User,
           attributes: ["name"],
         },
-        {
-          model: Ingredient,
-          attributes: ["ingredient_amount", "ingredient_name"],
-        },
       ],
     });
 
-    res.status(200).json(recipeData);
+    const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+
+    res.render("all-recipes", {
+      recipes,
+      //logged_in: req.session.logged_in
+    });
   } catch (err) {
     res.status(400).json(err);
   }
@@ -33,10 +34,6 @@ router.get("/:id", async (req, res) => {
           model: User,
           attributes: ["name"],
         },
-        {
-          model: Ingredient,
-          attributes: ["ingredient_amount", "ingredient_name"],
-        },
       ],
     });
 
@@ -44,6 +41,13 @@ router.get("/:id", async (req, res) => {
       res.status(404).json({ message: "No recipe found with that id!" });
       return;
     }
+
+    const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+
+    res.render("recipe-cards", {
+      recipes,
+      //logged_in: req.session.logged_in
+    });
 
     res.status(200).json(recipeData);
   } catch (err) {

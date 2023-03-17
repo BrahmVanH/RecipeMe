@@ -28,20 +28,11 @@
 
 {{> view-recipe-modal}}
 
-{{!--{{#if loggedIn}} --}}
+{{!--{{#if logged_in}}--}}
 {{#each recipes as |recipe|}} {{! #each helps to over things }}
 {{> recipe-cards}} {{! forward information into a partial, the "recipe-cards" handlebars file }}
 {{/each}}
-{{!-- spoonacular recipes if we want to use them
-{{#each spoonRecipes as |spoonRecipe|}} {{! #each helps to over things }}
-{{> api-cards}} {{! forward information into a partial, the "api-cards" handlebars file }}
-{{/each}} --}}
-{{!--{{else}}
-{{!-- spoonacular recipes if we want to use them
-{{#each spoonRecipes as |spoonRecipe|}} {{! #each helps to over things }}
-{{> api-cards}} {{! forward information into a partial, the "api-cards" handlebars file }}
-{{/each}} 
-{{/if}} --}} 
+
 
 
 

@@ -42,6 +42,7 @@ Recipe.init(
     },
     recipe_image: {
       type: DataTypes.STRING,
+      defaultValue: "recipeplaceholder.png"
     },
   },
   {

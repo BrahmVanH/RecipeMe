@@ -1,11 +1,9 @@
 const createAccountBtn = document.getElementById("createAccountBtn");
 const createRecipeBtn = document.getElementById("createRecipeBtn");
-const exphbs = require("express-handlebars");
+const logoutBtn = document.getElementById("logOutBtn");
 
 // Confirm all functions are performing only one task before deleting
 // this comment, if not the case refactor
-
-
 
 const createAccountFormHandler = (event) => {
   event.preventDefault();
@@ -33,12 +31,14 @@ const createAccountFormHandler = (event) => {
 // Async event handler to process user login
 
 const loginFormHandler = async (event) => {
+  console.log("calling loginFormHandler...");
   event.preventDefault();
 
   const username = document.getElementById("usernameInput").value.trim();
   const userPassword = document.getElementById("passwordInput").value.trim();
 
   if (username && userPassword) {
+    console.log("fetching...");
     const response = await fetch("/api/user/login", {
       method: "POST",
       body: JSON.stringify({ username, userPassword }),
@@ -47,10 +47,26 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       // If login was successful, redirect to the profile page
-      document.location.replace("./homepage.handlebars");
+      document.location.replace("/");
+      console.log("Going back home...");
     } else {
       Alert(response.statusText);
     }
+  }
+};
+
+const logoutButtonHandler = (event) => {
+  event.preventDefault();
+  console.log("logging out");
+  const logoutResponse = fetch("/api/user/logout", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+  });
+  if (response.ok) {
+    console.log(response);
+    document.location.replace("/");
+  } else {
+    alert(response.statusText);
   }
 };
 
@@ -63,7 +79,7 @@ const createIngredientsObject = (ingredientsInput) => {
 
 const createRecipeFormHandler = (event) => {
   event.preventDefault();
-  
+
   const name = document.getElementById("recipeNameInput").value.trim();
   const category = document
     .getElementById("recipeCategorySelector")
@@ -116,14 +132,12 @@ const addIngredientInputEl = async (event) => {
   ingredientsContainer.appendChild(ingredientInput);
 };
 
-Handlebars.registerPartial("myPartial", "{{prefix}}");
-
-
 // ADD MORE INGREDIENTS BUTTON
 
 document
-  .querySelector(".login-form")
-  .addEventListener("submit", loginFormHandler);
+
+  .querySelector("#loginSubmit")
+  .addEventListener("click", loginFormHandler);
 
 document
   .querySelector("#addMoreIngredientsButton")
@@ -132,3 +146,5 @@ document
 createRecipeBtn.addEventListener("click", createRecipeFormHandler);
 
 createAccountBtn.addEventListener("click", createAccountFormHandler);
+
+logoutBtn.addEventListener("click", logoutButtonHandler);

@@ -14,8 +14,10 @@ $("#viewRecipeBtn").click(function () {
 });*/
 
 $("#logInBtn").click(function () {
+  console.log("clicked");
   $("#logInModal").click();
 });
+
 
 $("#createRecipeBtn").click(function () {
   $("#createRecipeModal").click();

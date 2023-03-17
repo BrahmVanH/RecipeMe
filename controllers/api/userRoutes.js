@@ -27,6 +27,7 @@ router.post("/", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
+  console.log("logging in...");
   try {
     // Async await function to find existing user matching email input
     const userData = await User.findOne({ where: { name: req.body.username } });
@@ -55,8 +56,11 @@ router.post("/login", async (req, res) => {
 
     // If above matches, mark user as logged in in db
     req.session.save(() => {
+      console.log("saving session...");
       req.session.user_id = userData.id;
+      console.log(`session.user_id: ${userData.id}`);
       req.session.logged_in = true;
+      console.log(`logged_in`);
 
       res.json({ user: userData, message: "Welcome!" });
     });

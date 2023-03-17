@@ -1,66 +1,47 @@
 {{!-- html for a singular card that will display on the all-recipes page and homepage after user logs in. This connect to "homepage.handlebars" & "all-recipes.handlebars" --}}
+<div class="container"> 
+  <div class="row row-cols-1 m-3 g-4">
+    <div class="col-sm">
+      <div class="card h-100">
+        <img
+          src="/images/{{recipe_image}}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title"><strong>{{recipe_name}}</strong></h5>
+          <p>{{category}} <i>{{calories/serving}}</i></p>
+          <button type="button" class="navbar-brand" id="viewRecipeBtn" data-toggle="modal" data-target="#viewRecipeModal">View Recipe</button>
+        </div>
+      </div>
+    </div>
+  </div> 
 
-{{!-- TODO: create card with recipe.name, view button, background image, calories??, food category?? --}}
-{{!-- pre-populate card with data--}}
-{{!-- <div class="row row-cols-1 row-cols-md-3 m-3 g-4">
-  <a href=`/recipes/{{id}}`>
-    <div class="col">
-      <button type="button" class="navbar-brand" id="viewRecipeBtn" data-toggle="modal" data-target="#viewRecipeModal">
-        <div class="card h-100">
-          <img src="/images/{{recipe_image.[0].filename}}` class="card-img-top" alt=``{{recipe_image.[0].description}}" />
-          <div class="card-body">
-            <h5 class="card-title"><strong>{{recipe_name}}</strong></h5>
-            <p>{{category}} 
-              <i>{{calories/serving}}</i>
-            </p>
-            <button type="button" class="navbar-brand" id="viewRecipeBtn" data-toggle="modal" data-target="#viewRecipeModal">View Recipe</button>
+  <div id="viewRecipeModal" data-toggle="modal" data-target="viewRecipeModal" class="modal fade show" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>{{recipe_name}}</h4>
+          <button class="btn-close" type="button" data-bs-dismiss="modal"
+              aria-div="Close"></button>
+        </div>
+        <div class="container">
+          <div class="row d-flex">
+            <div class="card">
+              <div class="card-body d-flex flex-column">
+                <div class="form-div recipe">{{recipe_name}}</div>
+                <div class="form-div recipe">{{category}}</div>
+                <div class="form-div recipe">{{recipe_image}}</div>
+                <div class="form-div recipe">{{recipe.ingredients}}</div>
+                <div class="form-div recipe">{{recipe.instructions}}</div>
+              </div>
+            </div>
           </div>
         </div>
-      </button>
-    </div>
-  </a>
-</div>  --}}
-
-<div class="row row-cols-1 row-cols-md-3 m-3 g-4">
-  <div class="col">
-    <div class="card h-100">
-      <img
-        src="/images/{{recipe_image}}"
-        class="card-img-top"
-        alt="..."
-      />
-      <div class="card-body">
-        <h5 class="card-title"><strong>{{recipe_name}}</strong></h5>
-        <p>{{category}} <i>{{calories/serving}}</i></p>
-        <button type="button" class="navbar-brand" id="viewRecipeBtn" data-toggle="modal" data-target="#viewRecipeModal">View Recipe</button>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="button">Save</button>
+        </div>
       </div>
     </div>
   </div>
-</div> 
-
-<div id="viewRecipeModal" data-toggle="modal" data-target="viewRecipeModal" class="modal fade show" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4>{{recipe_name}}</h4><button class="btn-close" type="button" data-bs-dismiss="modal"
-                    aria-div="Close"></button>
-            </div>
-            <div class="container">
-                <div class="row d-flex">
-                    <div class="card">
-                        <div class="card-body d-flex flex-column">
-                            <div class="form-div recipe">{{recipe_name}}</div>
-                                <input id="recipeNameInput" class="form-control" type="text" />
-                                <div class="form-div recipe">{{category}}</div>
-                            <div class="form-div recipe">{{recipe_image}}</div>
-                            <div class="form-div recipe">{{recipe.ingredients}}</div>
-                            <div class="form-div recipe">{{recipe.instructions}}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer"><button class="btn btn-primary" type="button">Save</button>
-            </div>
-        </div>
-    </div>
-</div> 
+</div>

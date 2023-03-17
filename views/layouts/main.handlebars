@@ -40,12 +40,20 @@
     </nav>
   </header>
 
+<script type="text/javascript">
+ $(document).ready(function() {
+    var template = Handlebars.compile("view-recipe-modal");
+    Handlebars.registerPartial("view-recipe-modal", document.getElementById("viewRecipeModal").innerHTML);
+    template(recipes);
+  }
+  </script>
+
   <main>
     <div class="allRecipes">
     {{> login-modal}}
     {{> create-account-modal}}
     {{> create-recipe-modal}}
-    {{> view-recipe-modal}}
+    
     {{{ body }}}
     </div>
   </main>

@@ -17,10 +17,6 @@
   align-items: flex-start;
 }
 
-main {
-  height: 74vh;
-}
-
 .navbar-brand {
   display: flex;
   flex-wrap:inherit;
@@ -42,10 +38,9 @@ main {
 .myfooter {
   align-items: center;
   display: flex;
-  flex-wrap: wrap;
-  padding: 6px;
+  /* flex-wrap: wrap;
+  padding: 6px; */
   background-color: #FFBE2C;
-  height: 32px;
 }
 
 .team { 

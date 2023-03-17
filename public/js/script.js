@@ -127,9 +127,10 @@ const addIngredientInputEl = async (event) => {
     "ingredient form-control form-control-sm w-80"
   );
   ingredientInput.setAttribute("type", "text");
-  ingredientInput.setAttribute("style", "margin: 2px;");
+  ingredientInput.setAttribute("style", "width: 80%;margin: 2px;");
+  ingredientInput.setAttribute("class", "ingredient form-control form-control-sm");
   ingredientInput.setAttribute("placeholder", "quantity and name");
-  ingredientsContainer.appendChild(ingredientInput);
+  ingredientsContainer.insertBefore(ingredientInput, ingredientsContainer.children[5]);
 };
 
 // ADD MORE INGREDIENTS BUTTON

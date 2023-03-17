@@ -8,19 +8,23 @@ $("#viewRecipeBtn").click(function () {
   $("#viewRecipeModal").click();
 });
 
-// get this to function properly.
-// $(function() {
-// $("#viewRecipeModal").click(function () {
-//   $(".btn-close").modal("close");
-// });
-// }
-
 $("#logInBtn").click(function () {
   console.log("clicked");
   $("#logInModal").click();
 });
 
+$(".btn-close").click(function () {
+  $("#logInModal").click();
+});
+
+$(".btn-close").click(function () {
+  $("#signUpModal").click();
+});
 
 $("#createRecipeBtn").click(function () {
+  $("#createRecipeModal").click();
+});
+
+$(".btn-close").click(function () {
   $("#createRecipeModal").click();
 });

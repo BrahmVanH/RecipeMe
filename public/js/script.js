@@ -1,5 +1,5 @@
 const createAccountBtn = document.getElementById("createAccountBtn");
-const createRecipeBtn = document.getElementById("createRecipeBtn");
+const saveRecipeBtn = document.getElementById("saveRecipeBtn");
 const logoutBtn = document.getElementById("logOutBtn");
 
 // Confirm all functions are performing only one task before deleting
@@ -63,7 +63,6 @@ const logoutButtonHandler = (event) => {
     headers: { "Content-Type": "application/json" },
   });
   if (response.ok) {
-    console.log(response);
     document.location.replace("/");
   } else {
     alert(response.statusText);
@@ -71,18 +70,24 @@ const logoutButtonHandler = (event) => {
 };
 
 const createIngredientsObject = (ingredientsInput) => {
-  const ingredients = ingredientsInput.map((ingredient) =>
-    ingredient.value.trim()
-  );
-  ingredientsObject = JSON.stringify({ ingredients });
+  console.log("creating ingredients array...")
+  ingredientsArray = [];
+  for (const ingredient of ingredientsInput) {
+    ingredientTrim = ingredient.value.trim();
+    ingredientsArray.push(ingredientTrim);
+    console.log("pushing ingredient inputs to array...")
+  };
+  console.log("JSONifying ingredientsArray");
+  ingredientsObject = JSON.stringify({ ingredientsArray });
 };
 
 const createRecipeFormHandler = (event) => {
+  console.log("creating recipe...");
   event.preventDefault();
 
   const name = document.getElementById("recipeNameInput").value.trim();
   const category = document
-    .getElementById("recipeCategorySelector")
+    .getElementById("recipeCategorySelectEl")
     .value.trim();
   const imageInput = document.getElementById("recipeImageUpload").value.trim();
   const instructions = document.getElementById("instructionInput").value.trim();
@@ -107,7 +112,7 @@ const createRecipeFormHandler = (event) => {
 
     if (response.ok) {
       // If login was successful, redirect to the profile page
-      document.location.replace("./homepage.handlebars");
+      document.location.replace("/");
     } else {
       Alert(response.statusText);
     }
@@ -127,9 +132,16 @@ const addIngredientInputEl = async (event) => {
     "ingredient form-control form-control-sm w-80"
   );
   ingredientInput.setAttribute("type", "text");
-  ingredientInput.setAttribute("style", "margin: 2px;");
+  ingredientInput.setAttribute("style", "width: 80%;margin: 2px;");
+  ingredientInput.setAttribute(
+    "class",
+    "ingredient form-control form-control-sm"
+  );
   ingredientInput.setAttribute("placeholder", "quantity and name");
-  ingredientsContainer.appendChild(ingredientInput);
+  ingredientsContainer.insertBefore(
+    ingredientInput,
+    ingredientsContainer.children[5]
+  );
 };
 
 // ADD MORE INGREDIENTS BUTTON
@@ -143,7 +155,7 @@ document
   .querySelector("#addMoreIngredientsButton")
   .addEventListener("click", addIngredientInputEl);
 
-createRecipeBtn.addEventListener("click", createRecipeFormHandler);
+saveRecipeBtn.addEventListener("click", createRecipeFormHandler);
 
 createAccountBtn.addEventListener("click", createAccountFormHandler);
 

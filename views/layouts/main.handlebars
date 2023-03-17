@@ -23,7 +23,7 @@
       {{!-- navbar links that display on the homepage--}}
       {{#if logged_in}}
       <div class="navbar-brand">
-        <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Hello, {{user.name}}</a>
+        <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Hello, {{username}}</a>
         <button type="button" class="navbar-brand" id="createRecipeBtn" data-toggle="modal" data-target="#createRecipeModal">Create a Recipe</button>
 
         <a class="navbar-brand text-dark text-opacity-75 ms-3" href="/api/recipes/">View Recipes</a>

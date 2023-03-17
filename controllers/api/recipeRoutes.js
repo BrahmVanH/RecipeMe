@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
 
     res.render("all-recipes", {
       recipes,
-      //logged_in: req.session.logged_in
+      logged_in: req.session.logged_in
     });
 
   } catch (err) {
@@ -47,7 +47,7 @@ router.get("/:id", async (req, res) => {
 
     res.render("recipe-cards", {
       recipes,
-      //logged_in: req.session.logged_in
+      logged_in: req.session.logged_in
     });
 
     res.status(200).json(recipeData);

@@ -8,7 +8,7 @@ const logoutBtn = document.getElementById("logOutBtn");
 const createAccountFormHandler = (event) => {
   event.preventDefault();
 
-  const username = document.getElementById("usernameInput").value.trim();
+  const username = document.getElementById("createUsernameInput").value.trim();
   const userEmail = document.getElementById("emailInput").value.trim();
   const userPassword = document
     .getElementById("createPasswordInput")
@@ -38,7 +38,7 @@ const loginFormHandler = async (event) => {
   console.log("calling loginFormHandler...");
   event.preventDefault();
 
-  const username = document.getElementById("usernameInput").value.trim();
+  const username = document.getElementById("loginUsernameInput").value.trim();
   const userPassword = document
     .getElementById("signInPasswordInput")
     .value.trim();

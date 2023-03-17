@@ -21,22 +21,22 @@
     {{!-- TODO: Create header --}}
     <nav class="navbar">
       {{!-- navbar links that display on the homepage--}}
-      {{!-- {{#if loggedIn}} --}}
+      {{#if logged_in}}
       <div class="navbar-brand">
         <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Hello, {{user.name}}</a>
         <button type="button" class="navbar-brand" id="createRecipeBtn" data-toggle="modal" data-target="#createRecipeModal">Create a Recipe</button>
 
         <a class="navbar-brand text-dark text-opacity-75 ms-3" href="/api/recipes/">View Recipes</a>
-        <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Log Out</a>
+        <button type="button" class="navbar-brand" id="logOutBtn">Log Out</button>
       </div>
-      {{!-- {{else}} --}}
+      {{else}}
       <div class="navbar-brand">
         <button type="button" class="navbar-brand" id="signUpBtn" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
         {{!-- <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Sign Up</a> --}}
         <button type="button" class="navbar-brand" id="LogInBtn" data-toggle="modal" data-target="#logInModal">Log In</button>
         {{!-- <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Log In</a> --}}
       </div>
-      {{!-- {{/if}} --}}
+      {{/if}}
     </nav>
   </header>
 

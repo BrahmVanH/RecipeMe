@@ -42,9 +42,9 @@
 
 <script type="text/javascript">
  $(document).ready(function() {
-    var template = Handlebars.compile("");
-    Handlebars.registerPartial("person", document.getElementById("person-partial").innerHTML);
-    template(yourData);
+    var template = Handlebars.compile("view-recipe-modal");
+    Handlebars.registerPartial("view-recipe-modal", document.getElementById("viewRecipeModal").innerHTML);
+    template(recipes);
   }
   </script>
 

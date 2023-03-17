@@ -22,46 +22,45 @@
 </div>  --}}
 
 <div class="row row-cols-1 row-cols-md-3 m-3 g-4">
-        <div class="col">
-          <div class="card h-100">
-            <img
-              src="/images/chicken.jpg"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title"><strong>{{RecipeName}}</strong></h5>
-              <p>{{category}} <i>{{calories/serving}}</i></p>
-              <a href="#" class="btn btn-primary">View Recipe</a>
+  <div class="col">
+    <div class="card h-100">
+      <img
+        src="/images/{{recipe_image}}"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title"><strong>{{recipe_name}}</strong></h5>
+        <p>{{category}} <i>{{calories/serving}}</i></p>
+        <button type="button" class="navbar-brand" id="viewRecipeBtn" data-toggle="modal" data-target="#viewRecipeModal">View Recipe</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<div id="viewRecipeModal" data-toggle="modal" data-target="viewRecipeModal" class="modal fade show" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>{{recipe_name}}</h4><button class="btn-close" type="button" data-bs-dismiss="modal"
+                    aria-div="Close"></button>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img
-              src="/images/spaghetti.jfif"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title"><strong>{{RecipeName}}</strong></h5>
-              <p>{{category}} <i>{{calories/serving}}</i></p>
-              <a href="#" class="btn btn-primary">View Recipe</a>
+            <div class="container">
+                <div class="row d-flex">
+                    <div class="card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="form-div recipe">{{recipe_name}}</div>
+                                <input id="recipeNameInput" class="form-control" type="text" />
+                                <div class="form-div recipe">{{category}}</div>
+                            <div class="form-div recipe">{{recipe_image}}</div>
+                            <div class="form-div recipe">{{recipe.ingredients}}</div>
+                            <div class="form-div recipe">{{recipe.instructions}}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img
-              src="/images/pasta.jfif"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title"><strong>{{RecipeName}}</strong></h5>
-              <p>{{category}} <i>{{calories/serving}}</i></p>
-              <a href="#" class="btn btn-primary">View Recipe</a>
+            <div class="modal-footer"><button class="btn btn-primary" type="button">Save</button>
             </div>
-          </div>
         </div>
-      </div> 
+    </div>
+</div> 

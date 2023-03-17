@@ -9,10 +9,15 @@
             <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Dinner</a>
             <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Dessert</a>
             <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Snacks</a>
+            <a class="navbar-brand text-dark text-opacity-75 ms-3" href="#">Condiments</a>
     </div>
 </nav> 
 {{!-- this will display each recipe card if the user has created any recipes --}}
+{{! #each helps to over things }}
+
+<div class="d-flex justify-content-center">
 {{#each recipes as |recipe|}} {{! #each helps to over things }}
 {{> recipe-cards}} {{! forward information into a partial, the "recipe-cards" handlebars file }}
 {{/each}}
+</div> {{! forward information into a partial, the "recipe-cards" handlebars file }}
 </div>

@@ -9,9 +9,11 @@ $("#viewRecipeBtn").click(function () {
 });
 
 // get this to function properly.
-/*$("#viewRecipeBtn").click(function () {
-  $("#closeModal").modal("hide");
-});*/
+// $(function() {
+// $("#viewRecipeModal").click(function () {
+//   $(".btn-close").modal("close");
+// });
+// }
 
 $("#logInBtn").click(function () {
   console.log("clicked");

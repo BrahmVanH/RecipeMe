@@ -18,6 +18,10 @@ $("#logInBtn").click(function () {
   $("#logInModal").click();
 });
 
+$(".btn-close").click(function () {
+  $("#logInModal").click();
+});
+
 
 $("#createRecipeBtn").click(function () {
   $("#createRecipeModal").click();

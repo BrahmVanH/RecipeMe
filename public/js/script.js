@@ -10,7 +10,7 @@ const createAccountFormHandler = (event) => {
 
   const username = document.getElementById("usernameInput").value.trim();
   const userEmail = document.getElementById("emailInput").value.trim();
-  const userPassword = document.getElementById("passwordInput").value.trim();
+  const userPassword = document.getElementById("createPasswordInput").value.trim();
 
   if (username && userEmail && userPassword) {
     const response = fetch("/api/user/", {
@@ -21,7 +21,7 @@ const createAccountFormHandler = (event) => {
 
     if (response.ok) {
       // If login was successful, redirect to the profile page
-      document.location.replace("../homepage.handlebars");
+      document.location.replace("/");
     } else {
       Alert(response.statusText);
     }
@@ -35,7 +35,7 @@ const loginFormHandler = async (event) => {
   event.preventDefault();
 
   const username = document.getElementById("usernameInput").value.trim();
-  const userPassword = document.getElementById("passwordInput").value.trim();
+  const userPassword = document.getElementById("signInPasswordInput").value.trim();
 
   if (username && userPassword) {
     console.log("fetching...");
@@ -70,13 +70,13 @@ const logoutButtonHandler = (event) => {
 };
 
 const createIngredientsObject = (ingredientsInput) => {
-  console.log("creating ingredients array...")
+  console.log("creating ingredients array...");
   ingredientsArray = [];
   for (const ingredient of ingredientsInput) {
     ingredientTrim = ingredient.value.trim();
     ingredientsArray.push(ingredientTrim);
-    console.log("pushing ingredient inputs to array...")
-  };
+    console.log("pushing ingredient inputs to array...");
+  }
   console.log("JSONifying ingredientsArray");
   ingredientsObject = JSON.stringify({ ingredientsArray });
 };

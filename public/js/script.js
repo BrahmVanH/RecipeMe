@@ -10,7 +10,9 @@ const createAccountFormHandler = (event) => {
 
   const username = document.getElementById("usernameInput").value.trim();
   const userEmail = document.getElementById("emailInput").value.trim();
-  const userPassword = document.getElementById("createPasswordInput").value.trim();
+  const userPassword = document
+    .getElementById("createPasswordInput")
+    .value.trim();
 
   if (username && userEmail && userPassword) {
     const response = fetch("/api/user/", {
@@ -18,13 +20,15 @@ const createAccountFormHandler = (event) => {
       body: JSON.stringify({ username, userEmail, userPassword }),
       headers: { "Content-Type": "application/json" },
     });
+  } else {
+    Alert("You must enter a name, email, and password to create an account!");
+  }
 
-    if (response.ok) {
-      // If login was successful, redirect to the profile page
-      document.location.replace("/");
-    } else {
-      Alert(response.statusText);
-    }
+  if (response.ok) {
+    // If login was successful, redirect to the profile page
+    document.location.replace("/");
+  } else {
+    Alert(response.statusText);
   }
 };
 
@@ -35,7 +39,9 @@ const loginFormHandler = async (event) => {
   event.preventDefault();
 
   const username = document.getElementById("usernameInput").value.trim();
-  const userPassword = document.getElementById("signInPasswordInput").value.trim();
+  const userPassword = document
+    .getElementById("signInPasswordInput")
+    .value.trim();
 
   if (username && userPassword) {
     console.log("fetching...");
@@ -55,18 +61,22 @@ const loginFormHandler = async (event) => {
   }
 };
 
-const logoutButtonHandler = (event) => {
-  event.preventDefault();
+const reloadPage = () => {
+  window.location.reload();
+};
+
+const logUserOut = () => {
   console.log("logging out");
   const logoutResponse = fetch("/api/user/logout", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
   });
-  if (response.ok) {
-    document.location.replace("/");
-  } else {
-    alert(response.statusText);
-  }
+};
+
+const logoutButtonHandler = (event) => {
+  event.preventDefault();
+  logUserOut();
+  setTimeout(reloadPage, 1000);
 };
 
 const createIngredientsObject = (ingredientsInput) => {

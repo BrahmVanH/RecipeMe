@@ -7,7 +7,7 @@
 } 
 
 main {
-  background-color: #e3e3e3;
+  background-image: linear-gradient(white, #e3e3e3);
 }
 
 .navbar {
@@ -35,16 +35,14 @@ main {
   color:rgba(44, 44, 44, 0.997);
 }
 
-.hero {
-  background-image: linear-gradient(white, #e3e3e3);
-}
-
 .carousel {
   width: 82%;
   margin: 0px;
   padding: 0px;
-  border: #FFBE2C;
-  border-radius: 25px;
+}
+
+.carousel-inner {
+  border-radius: 15px;
 }
 
 .carousel-caption {
@@ -92,6 +90,19 @@ strong {
   font-weight: 600;
 }
 
+.card {
+  border-radius: 15px;
+}
+
+.card-recipe-title {
+  font-size: 24px;
+}
+
+.card-recipe-category {
+  font-size: 600;
+  font-style: italic;
+}
+
 #viewRecipeBtn {
   background-color: #ffc02cd6;
   /* background-color:#9ecaeb; */
@@ -100,6 +111,29 @@ strong {
   justify-content: center;
   align-items: center;
   color: rgba(68, 68, 68, 0.997);
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.filter-buttons {
+  background-color: #10AAFF;
+  /* background-color:#9ecaeb; */
+  border: none;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.904);
+  font-size: 18px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.filter-buttons:visited {
+  color: #10AAFF;
+
 }
 
 .myfooter {

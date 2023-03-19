@@ -18,8 +18,17 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   height: 150px;
-  justify-content: flex-end;
   align-items: flex-start;
+  justify-content: space-between;
+}
+
+.go-home {
+  display: flex;
+  justify-content: start;
+  width: 40%;
+  height: 100%;
+  border-style: none;
+  border-width: 2px;
 }
 
 .navbar-brand {
@@ -58,7 +67,7 @@ main {
 
 strong {
   color:#10AAFF;
-  font-family: 'Delius', cursive;
+  font-family: 'Delius swash caps', cursive;
 }
 
 .ms-3 {
@@ -74,11 +83,19 @@ strong {
   align-items: center;
   background-color: #ffc02cd6;
   color: rgba(68, 68, 68, 0.997);
+  font-family: 'Delius swash caps', cursive;
 }
 
 .view-recipe-header {
   font-size: 24px;
   margin-bottom: 0px;
+  font-family: 'Delius swash caps', cursive;
+}
+
+.modal-title {
+  font-size: 24px;
+  margin-bottom: 0px;
+  font-family: 'Delius swash caps', cursive;
 }
 
 .sr-only {
@@ -86,7 +103,7 @@ strong {
 }
 
 .welcome {
-  font-family: 'Delius', cursive;
+  font-family: 'Delius swash caps', cursive;
   font-weight: 600;
 }
 
@@ -96,6 +113,7 @@ strong {
 
 .card-recipe-title {
   font-size: 24px;
+
 }
 
 .card-recipe-category {
@@ -133,18 +151,25 @@ strong {
 
 .filter-buttons:visited {
   color: #10AAFF;
-
 }
 
-.myfooter {
-  background-color:  #10abffd0;
-  height: 40px;
+.footer {
+  background-color: #FFBE2C;
+  opacity: .90;
+  height: 60px;
 }
 
 .footer-links {
   text-decoration: none;
-  color: rgba(44, 44, 44, 0.997);
+  color:rgba(44, 44, 44, 0.997);
   padding: 10px;
+}
+
+.recipe-me {
+  font-family: 'Delius swash caps', cursive;
+  font-size: 18px;
+  color: rgba(44, 44, 44, 0.997);
+  text-decoration: none;
 }
 
 

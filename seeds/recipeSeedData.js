@@ -4,7 +4,7 @@ const recipeData = [
   {
     recipe_name: "AB&J",
     category: "Lunch",
-    ingredients: ["1 tb peanut butter", "2 slices of bread", "1 tb jelly"],
+    ingredients: ["1 tb almond butter", "2 slices of bread", "1 tb jelly"],
     instructions:
       "Spread the almond butter on one slice, spread the jelly on the other slice, and then combine the slices into sandwich format",
     user_id: 1,

@@ -185,11 +185,11 @@ const identifyCategorySearch = async (event) => {
       console.log("filtering by category Dessert...");
       break;
     case "Snacks":
-      selectedCategory = "Snacks";
+      selectedCategory = "Snack";
       console.log("filtering by category Snacks...");
       break;
     case "Condiments":
-      selectedCategory = "Condiments";
+      selectedCategory = "Condiment";
       console.log("filtering by category Condiments...");
       break;
   }

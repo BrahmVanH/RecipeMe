@@ -24,14 +24,16 @@ Recipe.init(
         "Dessert",
         "Condiment"
       ),
-      allowNull: false,
     },
     ingredients: {
       type: DataTypes.JSON,
-      allowNull: false,
     },
     instructions: {
       type: DataTypes.TEXT,
+    },
+    recipe_image: {
+      type: DataTypes.STRING,
+      defaultValue: "recipeplaceholder.png",
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -39,10 +41,6 @@ Recipe.init(
         model: "user",
         key: "id",
       },
-    },
-    recipe_image: {
-      type: DataTypes.STRING,
-      defaultValue: "recipeplaceholder.png"
     },
   },
   {

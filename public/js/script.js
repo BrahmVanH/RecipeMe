@@ -5,7 +5,7 @@ const logoutBtn = document.getElementById("logOutBtn");
 // Confirm all functions are performing only one task before deleting
 // this comment, if not the case refactor
 
-const createAccountFormHandler = (event) => {
+const createAccountFormHandler = async (event) => {
   event.preventDefault();
 
   const username = document.getElementById("createUsernameInput").value.trim();
@@ -15,20 +15,17 @@ const createAccountFormHandler = (event) => {
     .value.trim();
 
   if (username && userEmail && userPassword) {
-    const response = fetch("/api/user/", {
+    const response = await fetch("/api/user/", {
       method: "POST",
       body: JSON.stringify({ username, userEmail, userPassword }),
       headers: { "Content-Type": "application/json" },
     });
-  } else {
-    Alert("You must enter a name, email, and password to create an account!");
-  }
-
-  if (response.ok) {
-    // If login was successful, redirect to the profile page
-    document.location.replace("/");
-  } else {
-    Alert(response.statusText);
+    if (response.ok) {
+      // If login was successful, redirect to the profile page
+      document.location.replace("/");
+    } else {
+      Alert(response.statusText);
+    }
   }
 };
 
@@ -86,47 +83,55 @@ const createIngredientsObject = (ingredientsInput) => {
     ingredientTrim = ingredient.value.trim();
     ingredientsArray.push(ingredientTrim);
     console.log("pushing ingredient inputs to array...");
+    console.log(`${ingredientsArray}`);
   }
   console.log("JSONifying ingredientsArray");
   ingredientsObject = JSON.stringify({ ingredientsArray });
 };
 
-const createRecipeFormHandler = (event) => {
+const createRecipeFormHandler = async (event) => {
   console.log("creating recipe...");
   event.preventDefault();
 
-  const name = document.getElementById("recipeNameInput").value.trim();
-  const category = document
+  const recipeName = document.getElementById("recipeNameInput").value.trim();
+  const recipeCategory = document
     .getElementById("recipeCategorySelectEl")
     .value.trim();
   const imageInput = document.getElementById("recipeImageUpload").value.trim();
   const instructions = document.getElementById("instructionInput").value.trim();
   const ingredientsInput = document.querySelectorAll(".ingredient");
   const ingredients = createIngredientsObject(ingredientsInput);
+  console.log("back into create...formhandler...");
+  console.log("session user_id...");
 
   // Incomplete.... need to create a function to handle the image upload to put in here
   // need to decide at which point we want to include user Id... in this function,
   // Or in the route itself.
-  if (name && category && instructions && ingredients && imageInput) {
-    const response = fetch("/api/recipe/:recipeName", {
-      method: "POST",
-      body: JSON.stringify({
-        recipeName,
-        recipeCategory,
-        ingredient,
-        instructions,
-        image,
-      }),
-      headers: { "Content-Type": "application/json" },
-    });
+  /*if (name && category && instructions && ingredients && imageInput) { */
+  console.log("all recipe form handler requirements present....");
+  console.log("creating POST request for new recipe");
+  const response = await fetch("/api/recipes/", {
+    method: "POST",
+    body: JSON.stringify({
+      recipeName,
+      recipeCategory,
+      ingredients,
+      instructions,
+      imageInput,
+    }),
+    headers: { "Content-Type": "application/json" },
+  });
 
-    if (response.ok) {
-      // If login was successful, redirect to the profile page
-      document.location.replace("/");
-    } else {
-      Alert(response.statusText);
-    }
+  if (response.ok) {
+    // If login was successful, redirect to the profile page
+    console.log("Recipe created, replacing document location");
+    document.location.replace("/");
+  } else {
+    Alert(response.statusText);
   }
+  /*} else {
+    console.log(`${name} ${category} ${instructions} ${ingredients} ${imageInput}`)
+  } */
 };
 
 // We can probably come up with a better name for this function

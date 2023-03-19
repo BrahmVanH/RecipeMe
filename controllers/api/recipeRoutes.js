@@ -18,9 +18,8 @@ router.get("/", async (req, res) => {
 
     res.render("all-recipes", {
       recipes,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
-
   } catch (err) {
     res.status(400).json(err);
   }
@@ -47,7 +46,7 @@ router.get("/:id", async (req, res) => {
 
     res.render("recipe-cards", {
       recipes,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
 
     res.status(200).json(recipeData);
@@ -61,50 +60,16 @@ router.post("/", async (req, res) => {
   try {
     const recipeData = await Recipe.create({
       recipe_name: req.body.recipe_name,
-      category: req.body.category,
-      description: req.body.description,
+      category: req.body.recipeCategory,
+      ingredients: req.body.ingredients,
       instructions: req.body.instructions,
-      user_id: req.session.user_id
+      user_id: req.session.user_id,
+      recipe_image: req.body.imageInput,
     });
     res.status(200).json(recipeData);
   } catch (err) {
     res.status(400).json(err);
   }
-});
-
-// This will create a RecipeIngredient table entry that will
-// allow us to associate recipes with ingredients
-
-router.post("/", (req, res) => {
-  /* req.body
-    recipeName: "",
-    recipeCategory: "",
-    ingredientIds: "",
-    instructions: "",
-    image: ""
-
-    */
-  Recipe.create(req.body)
-    .then((recipe) => {
-      if (req.body.ingredientIds.length) {
-        const recipeIngredientIdArray = req.body.ingredientIds.map(
-          (ingredient_id) => {
-            return {
-              recipe_id: recipe.id,
-              ingredient_id,
-            };
-          }
-        );
-        return RecipeIngredient.bulkCreate(recipeIngredientIdArray);
-      }
-
-      res.status(200).json(product);
-    })
-    .then((recipeIngredientIds) => res.status(200).json(recipeIngredientIds))
-    .catch((err) => {
-      console.log(err);
-      res.status(400).json(err);
-    });
 });
 
 // THIS ONE WORKS

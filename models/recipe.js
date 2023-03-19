@@ -28,7 +28,6 @@ Recipe.init(
     },
     ingredients: {
       type: DataTypes.JSON,
-      allowNull: false,
     },
     instructions: {
       type: DataTypes.TEXT,
@@ -42,7 +41,7 @@ Recipe.init(
     },
     recipe_image: {
       type: DataTypes.STRING,
-      defaultValue: "recipeplaceholder.png"
+      defaultValue: "recipeplaceholder.png",
     },
   },
   {

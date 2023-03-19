@@ -8,6 +8,14 @@ $("#viewRecipeBtn").click(function () {
   $("#viewRecipeModal").click();
 });
 
+$(".btn-close").click(function () {
+  $("#viewRecipeModal").click();
+});
+
+$(".btn").click(function () {
+  $("#viewRecipeModal").click();
+});
+
 $("#logInBtn").click(function () {
   console.log("clicked");
   $("#logInModal").click();

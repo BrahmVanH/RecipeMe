@@ -95,38 +95,44 @@ const createRecipeFormHandler = (event) => {
   console.log("creating recipe...");
   event.preventDefault();
 
-  const name = document.getElementById("recipeNameInput").value.trim();
-  const category = document
+  const recipeName = document.getElementById("recipeNameInput").value.trim();
+  const recipeCategory = document
     .getElementById("recipeCategorySelectEl")
     .value.trim();
   const imageInput = document.getElementById("recipeImageUpload").value.trim();
   const instructions = document.getElementById("instructionInput").value.trim();
   const ingredientsInput = document.querySelectorAll(".ingredient");
   const ingredients = createIngredientsObject(ingredientsInput);
+  console.log("back into create...formhandler...");
 
   // Incomplete.... need to create a function to handle the image upload to put in here
   // need to decide at which point we want to include user Id... in this function,
   // Or in the route itself.
-  if (name && category && instructions && ingredients && imageInput) {
-    const response = fetch("/api/recipe/:recipeName", {
-      method: "POST",
-      body: JSON.stringify({
-        recipeName,
-        recipeCategory,
-        ingredient,
-        instructions,
-        image,
-      }),
-      headers: { "Content-Type": "application/json" },
-    });
+  /*if (name && category && instructions && ingredients && imageInput) { */
+  console.log("all recipe form handler requirements present....");
+  console.log("creating POST request for new recipe");
+  const response = fetch("/api/recipes/", {
+    method: "POST",
+    body: JSON.stringify({
+      recipeName,
+      recipeCategory,
+      ingredients,
+      instructions,
+      imageInput,
+    }),
+    headers: { "Content-Type": "application/json" },
+  });
 
-    if (response.ok) {
-      // If login was successful, redirect to the profile page
-      document.location.replace("/");
-    } else {
-      Alert(response.statusText);
-    }
+  if (response.ok) {
+    // If login was successful, redirect to the profile page
+    console.log("Recipe created, replacing document location");
+    document.location.replace("/");
+  } else {
+    Alert(response.statusText);
   }
+  /*} else {
+    console.log(`${name} ${category} ${instructions} ${ingredients} ${imageInput}`)
+  } */
 };
 
 // We can probably come up with a better name for this function

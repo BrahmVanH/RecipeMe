@@ -35,10 +35,10 @@
 </div>
 
 {{!--{{#if loggedIn}} --}}
-<div class="d-flex justify-content-center">
-{{#each recipes as |recipe|}} {{! #each helps to over things }}
-{{> recipe-cards}} {{! forward information into a partial, the "recipe-cards" handlebars file }}
-{{/each}}
+<div class="container">
+  {{#each recipes as |recipe|}} {{! #each helps to over things }}
+  {{> recipe-cards}} {{! forward information into a partial, the "recipe-cards" handlebars file }}
+  {{/each}}
 </div>
 
 {{!-- spoonacular recipes if we want to use them

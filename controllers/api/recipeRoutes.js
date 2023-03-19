@@ -26,64 +26,61 @@ router.get("/", async (req, res) => {
 });
 
 // THIS ONE WORKS -- Get recipe by ID
-router.get("/:id", async (req, res) => {
-  try {
-    const recipeData = await Recipe.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ["name"],
-        },
-      ],
-    });
-
-    if (!recipeData) {
-      res.status(404).json({ message: "No recipe found with that id!" });
-      return;
-    }
-
-    const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
-
-    res.render("recipe-cards", {
-      recipes,
-      logged_in: req.session.logged_in,
-    });
-
-    res.status(200).json(recipeData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get("/:category", async (req, res) => {
+router.get("/:selectedCategory", async (req, res) => {
+  console.log("fetch received...");
   try {
     const recipeData = await Recipe.findAll({
-      where: { category: req.body.category},
-      include: [
-        {
-          model: User,
-          attributes: ["name"],
-        },
-      ],
+      where: {
+        category: req.params.selectedCategory,
+      },
     });
 
     if (!recipeData) {
-      res.status(404).json({ message: "No recipe found with that id!" });
+      res.status(404).json({ message: "No recipe found with that ida!" });
       return;
     }
 
     const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
 
-    res.render("recipe-cards", {
+    res.render("all-recipes", {
       recipes,
       logged_in: req.session.logged_in,
     });
-
-    res.status(200).json(recipeData);
+    console.log(recipeData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+// router.get("/:selectedCategory", async (req, res) => {
+//   try {
+//     const recipeData = await Recipe.findAll({
+//       where: { category: req.params.selectedCategory },
+//       include: [
+//         {
+//           model: User,
+//           attributes: ["name"],
+//         },
+//       ],
+//     });
+
+//     if (!recipeData) {
+//       res.status(404).json({ message: "No recipe found with that id!" });
+//       return;
+//     }
+
+//     const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+
+//     res.render("recipe-cards", {
+//       recipes,
+//       logged_in: req.session.logged_in,
+//     });
+
+//     res.status(200).json(recipeData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 // THIS ONE WORKS WITHOUT THE USER_ID PART FOR NOW (I think bc when testing, there isn't a session user id?)
 router.post("/", async (req, res) => {
   try {

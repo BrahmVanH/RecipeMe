@@ -3,21 +3,22 @@
 {{!-- TODO: Make the links for filtering through categories "Breakfast", "Lunch", "Dinner", "Dessert", "Snacks" --}}
     <nav class="filter">
         {{!-- navbar links for food categories--}}
-        <div class="filter-categories">
-            <button id="breakfastFilter" class="navbar-brand text-dark text-opacity-75 ms-3" type="button" value="Breakfast" >Breakfast</button>
-            <button id="lunchFilter" class="navbar-brand text-dark text-opacity-75 ms-3" type="button" value="Lunch">Lunch</button>
-            <button id="dinnerFilter" class="navbar-brand text-dark text-opacity-75 ms-3" type="button" value="Dinner">Dinner</button>
-            <button id="dessertFilter" class="navbar-brand text-dark text-opacity-75 ms-3" type="button" value="Dessert">Dessert</button>
-            <button id="snacksFilter" class="navbar-brand text-dark text-opacity-75 ms-3" type="button" value="Snacks">Snacks</button>
-            <button id="condimentsFilter" class="navbar-brand text-dark text-opacity-75 ms-3" type="button" value="Condiments">Condiments</button>
+        <div class="filter-categories d-flex justify-content-center align-items-center">
+             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#10AAFF" class="bi bi-funnel-fill m-2" viewBox="0 0 16 16">
+             <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
+            </svg>
+            <button id="breakfastFilter" class="filter-buttons m-2" type="button" value="Breakfast" >Breakfast</button>
+            <button id="lunchFilter" class="filter-buttons m-2" type="button" value="Lunch">Lunch</button>
+            <button id="dinnerFilter" class="filter-buttons m-2" type="button" value="Dinner">Dinner</button>
+            <button id="dessertFilter" class="filter-buttons m-2" type="button" value="Dessert">Dessert</button>
+            <button id="snacksFilter" class="filter-buttons m-2" type="button" value="Snacks">Snacks</button>
+            <button id="condimentsFilter" class="filter-buttons m-2" type="button" value="Condiments">Condiments</button>
         </div>
     </nav> 
-    {{!-- this will display each recipe card if the user has created any recipes --}}
-    {{! #each helps to over things }}
+</div>
 
     <div class="container">
         {{#each recipes as |recipe|}} {{! #each helps to over things }}
         {{> recipe-cards}} {{! forward information into a partial, the "recipe-cards" handlebars file }}
         {{/each}}
     </div>{{! forward information into a partial, the "recipe-cards" handlebars file }}
-</div>

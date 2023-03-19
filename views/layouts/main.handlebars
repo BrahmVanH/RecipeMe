@@ -21,11 +21,11 @@
     <nav class="navbar">
       <a href="/" class="go-home"></a>
       {{!-- navbar links that display on the homepage--}}
-      <div>
-        {{#if logged_in}}
-        <div class="navbar-brand">
-          <div class="navbar-brand" href="#">Hello, {{user.name}}!</div>
-          <button type="button" class="navbar-brand" id="createRecipeBtn" data-toggle="modal" data-target="#createRecipeModal">Create a Recipe</button>
+
+      {{#if logged_in}}
+      <div class="navbar-brand">
+        <div class="navbar-brand" href="#">Hello, {{username}}!</div>
+        <button type="button" class="navbar-brand" id="createRecipeBtn" data-toggle="modal" data-target="#createRecipeModal">Create a Recipe</button>
 
           <a class="navbar-brand" href="/api/recipes/">View Recipes</a>
           <button type="button" class="navbar-brand" id="logOutBtn">Log Out</button>

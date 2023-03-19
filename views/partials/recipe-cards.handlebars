@@ -21,21 +21,28 @@
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4>{{recipe_name}}</h4>
+          <h2 class="view-recipe-header">{{recipe_name}}</h2>
           <button class="btn-close" type="button" data-bs-dismiss="modal"aria-div="Close"></button>
         </div>
       <div class="container">
         <div class="row d-flex">
           <div class="card">
             <div class="card-body d-flex flex-column">
-              <div class="recipe-category">{{category}}</div>
+                <i class="recipe-category mb-4">{{category}}</i>
                 <img
                   src="/images/{{recipe_image}}"
                   class="recipe-image"
                   alt="..."
                 />
               <br>
-              <div class="recipe-ingredients">{{ingredients}}</div>
+              <div class="recipe-ingredients">
+                <h4>Ingredients</h4>
+                <p>
+                  <ul>
+                    <li>{{ingredients}}</li>
+                  </ul>
+                </p>
+              </div>
               <br>
               <div class="recipe-instructions">{{instructions}}</div>
             </div>

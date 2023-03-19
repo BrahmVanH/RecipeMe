@@ -1,6 +1,12 @@
 const createAccountBtn = document.getElementById("createAccountBtn");
 const saveRecipeBtn = document.getElementById("saveRecipeBtn");
 const logoutBtn = document.getElementById("logOutBtn");
+const breakfastBtn = document.getElementById("breakfastFilter");
+const lunchBtn = document.getElementById("lunchFilter");
+const dinnerBtn = document.getElementById("dinnerFilter");
+const dessertBtn = document.getElementById("dessertFilter");
+const snacksBtn = document.getElementById("snacksFilter");
+const condimentsBtn = document.getElementById("condimentsFilter");
 
 // Confirm all functions are performing only one task before deleting
 // this comment, if not the case refactor
@@ -159,12 +165,28 @@ const addIngredientInputEl = async (event) => {
   );
 };
 
-// ADD MORE INGREDIENTS BUTTON
+const identifyCategorySearch = async (event) => {
+  console.log(this);
+  selectedCategory = this.innerHtml;
+  filterRecipesByCategory(selectedCategory);
+};
+
+const filterRecipesByCategory = async (selectedCategory) => {
+  const filteredRecipes = await fetch(`/api/recipes/${selectedCategory}`, {
+    method: "GET",
+  });
+  if (filteredRecipes.ok) {
+  } else {
+    Alert(response.statusText);
+  }
+};
 
 document
 
   .querySelector("#loginSubmit")
   .addEventListener("click", loginFormHandler);
+
+// ADD MORE INGREDIENTS BUTTON
 
 document
   .querySelector("#addMoreIngredientsButton")
@@ -175,3 +197,10 @@ saveRecipeBtn.addEventListener("click", createRecipeFormHandler);
 createAccountBtn.addEventListener("click", createAccountFormHandler);
 
 logoutBtn.addEventListener("click", logoutButtonHandler);
+
+breakfastBtn.addEventListener("click", identifyCategorySearch);
+lunchBtn.addEventListener("click", identifyCategorySearch);
+dinnerBtn.addEventListener("click", identifyCategorySearch);
+dessertBtn.addEventListener("click", identifyCategorySearch);
+snacksBtn.addEventListener("click", identifyCategorySearch);
+condimentsBtn.addEventListener("click", identifyCategorySearch);

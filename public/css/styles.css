@@ -67,7 +67,7 @@ main {
 
 strong {
   color:#10AAFF;
-  font-family: 'Delius', cursive;
+  font-family: 'Delius swash caps', cursive;
 }
 
 .ms-3 {
@@ -83,11 +83,19 @@ strong {
   align-items: center;
   background-color: #ffc02cd6;
   color: rgba(68, 68, 68, 0.997);
+  font-family: 'Delius swash caps', cursive;
 }
 
 .view-recipe-header {
   font-size: 24px;
   margin-bottom: 0px;
+  font-family: 'Delius swash caps', cursive;
+}
+
+.modal-title {
+  font-size: 24px;
+  margin-bottom: 0px;
+  font-family: 'Delius swash caps', cursive;
 }
 
 .sr-only {
@@ -95,7 +103,7 @@ strong {
 }
 
 .welcome {
-  font-family: 'Delius', cursive;
+  font-family: 'Delius swash caps', cursive;
   font-weight: 600;
 }
 
@@ -105,6 +113,7 @@ strong {
 
 .card-recipe-title {
   font-size: 24px;
+
 }
 
 .card-recipe-category {

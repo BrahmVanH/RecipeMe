@@ -11,13 +11,13 @@
         <div class="card-body">
           <h5 class="card-title"><strong>{{recipe_name}}</strong></h5>
           <p>{{category}} <i>{{calories/serving}}</i></p>
-          <button type="button" class="navbar-brand" id="viewRecipeBtn" data-toggle="modal" data-target="#viewRecipeModal">View Recipe</button>
+          <button type="button" class="navbar-brand" id="viewRecipeBtn" data-toggle="modal" data-target="#recipe{{id}}Modal">View Recipe</button>
         </div>
       </div>
     </div>
   </div> 
 
-  <div id="viewRecipeModal" data-toggle="modal" data-target="viewRecipeModal" class="modal fade show" role="dialog" tabindex="-1">
+  <div id="recipe{{id}}Modal" data-toggle="modal" data-target="viewRecipeModal" class="modal fade show" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">

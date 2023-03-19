@@ -3,13 +3,12 @@
 //   $("viewRecipeModal").modal("options");
 // });
 
-// good example
 $("#viewRecipeBtn").click(function () {
   $("#viewRecipeModal").click();
 });
 
 $(".btn-close").click(function () {
-  $("#viewRecipeModal").click();
+  $(".modal").click();
 });
 
 $(".btn").click(function () {

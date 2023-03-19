@@ -24,7 +24,7 @@
       {{!-- navbar links that display on the homepage--}}
       {{#if logged_in}}
       <div class="navbar-brand">
-        <div class="navbar-brand" href="#">Hello, {{user.name}}!</div>
+        <div class="navbar-brand" href="#">Hello, {{username}}!</div>
         <button type="button" class="navbar-brand" id="createRecipeBtn" data-toggle="modal" data-target="#createRecipeModal">Create a Recipe</button>
 
         <a class="navbar-brand" href="/api/recipes/">View Recipes</a>

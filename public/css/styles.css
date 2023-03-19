@@ -56,6 +56,16 @@ strong {
   font-weight: 600;
 }
 
+#viewRecipeBtn {
+  background-color: #D3E4F1;
+  /* background-color:#9ecaeb; */
+  border: none;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  color: rgba(68, 68, 68, 0.997);
+}
+
 .myfooter {
   background-color: #10AAFF;
   height: 40px;

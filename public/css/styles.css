@@ -6,10 +6,15 @@
   font-family: 'Work Sans', sans-serif;
 } 
 
+main {
+  background-color: #e3e3e3;
+}
+
 .navbar {
   display: flex;
   background-color: #FFBE2C;
   background-image: URL(/images/spoon3.png);
+  opacity: .9 ;
   background-repeat: no-repeat;
   background-size: cover;
   height: 150px;
@@ -24,10 +29,14 @@
   /* align-content: space-around;
   padding-top: 8px; */
   font-size: 20px;
+  background-color: #FFBE2C;
+  border: none;
+  opacity: .90;
+  color:rgba(44, 44, 44, 0.997);
 }
 
 .hero {
-  background-color: white;
+  background-image: linear-gradient(white, #e3e3e3);
 }
 
 .carousel {
@@ -51,6 +60,7 @@
 
 strong {
   color:#10AAFF;
+  font-family: 'Delius', cursive;
 }
 
 .ms-3 {
@@ -59,6 +69,18 @@ strong {
 
 .mb-0 {
   font-size: 18px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  background-color: #ffc02cd6;
+  color: rgba(68, 68, 68, 0.997);
+}
+
+.view-recipe-header {
+  font-size: 24px;
+  margin-bottom: 0px;
 }
 
 .sr-only {
@@ -81,7 +103,7 @@ strong {
 }
 
 .myfooter {
-  background-color: #10AAFF;
+  background-color:  #10abffd0;
   height: 40px;
 }
 

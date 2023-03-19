@@ -15,9 +15,9 @@
     {{!-- this will display each recipe card if the user has created any recipes --}}
     {{! #each helps to over things }}
 
-    <div class="d-flex justify-content-center">
+    <div class="container">
         {{#each recipes as |recipe|}} {{! #each helps to over things }}
         {{> recipe-cards}} {{! forward information into a partial, the "recipe-cards" handlebars file }}
         {{/each}}
-    </div> {{! forward information into a partial, the "recipe-cards" handlebars file }}
+    </div>{{! forward information into a partial, the "recipe-cards" handlebars file }}
 </div>

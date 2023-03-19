@@ -19,7 +19,7 @@
 
 .navbar-brand {
   display: flex;
-  flex-wrap:inherit;
+  flex-wrap: inherit;
   height: 46px;
   /* align-content: space-around;
   padding-top: 8px; */
@@ -31,16 +31,22 @@
 }
 
 .carousel {
-  height: 500px;
-  width: 65%;
+  width: 82%;
   margin: 0px;
   padding: 0px;
   border: #FFBE2C;
   border-radius: 25px;
 }
 
-.carousel-image {
-  object-fit: contain;
+.carousel-caption {
+  display: flex;
+  margin: 2px;
+  padding-left: 20px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.72);
+  color: rgba(44, 44, 44, 0.997);
+  text-align: center;
 }
 
 strong {
@@ -51,13 +57,21 @@ strong {
   margin-left: 10px;
 }
 
+.mb-0 {
+  font-size: 18px;
+}
+
+.sr-only {
+  font-weight: 800;
+}
+
 .welcome {
   font-family: 'Delius', cursive;
   font-weight: 600;
 }
 
 #viewRecipeBtn {
-  background-color: #D3E4F1;
+  background-color: #ffc02cd6;
   /* background-color:#9ecaeb; */
   border: none;
   border-radius: 8px;

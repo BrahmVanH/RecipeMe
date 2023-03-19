@@ -166,16 +166,42 @@ const addIngredientInputEl = async (event) => {
 };
 
 const identifyCategorySearch = async (event) => {
-  console.log(this);
-  selectedCategory = this.innerHtml;
+  console.log("clicked category button");
+  switch (event.target.value) {
+    case "Breakfast":
+      selectedCategory = "Breakfast";
+      console.log("filtering by category breakfast...");
+      break;
+    case "Lunch":
+      selectedCategory = "Lunch";
+      console.log("filtering by category lunch...");
+      break;
+    case "Dinner":
+      selectedCategory = "Dinner";
+      console.log("filtering by category Dinner...");
+      break;
+    case "Dessert":
+      selectedCategory = "Dessert";
+      console.log("filtering by category Dessert...");
+      break;
+    case "Snacks":
+      selectedCategory = "Snacks";
+      console.log("filtering by category Snacks...");
+      break;
+    case "Condiments":
+      selectedCategory = "Condiments";
+      console.log("filtering by category Condiments...");
+      break;
+  }
+
   filterRecipesByCategory(selectedCategory);
 };
 
 const filterRecipesByCategory = async (selectedCategory) => {
-  const filteredRecipes = await fetch(`/api/recipes/${selectedCategory}`, {
-    method: "GET",
-  });
+  console.log("creating fetch request to db...");
+  const filteredRecipes = await fetch(`/api/recipes/${selectedCategory}`);
   if (filteredRecipes.ok) {
+    window.location.replace(`/api/recipes/${selectedCategory}`);
   } else {
     Alert(response.statusText);
   }

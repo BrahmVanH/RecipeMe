@@ -24,7 +24,6 @@ Recipe.init(
         "Dessert",
         "Condiment"
       ),
-      allowNull: false,
     },
     ingredients: {
       type: DataTypes.JSON,
@@ -32,17 +31,17 @@ Recipe.init(
     instructions: {
       type: DataTypes.TEXT,
     },
-    user_id: {
+    recipe_image: {
+      type: DataTypes.STRING,
+      defaultValue: "recipeplaceholder.png",
+    },
+    /*user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "user",
         key: "id",
       },
-    },
-    recipe_image: {
-      type: DataTypes.STRING,
-      defaultValue: "recipeplaceholder.png",
-    },
+    },*/
   },
   {
     sequelize,

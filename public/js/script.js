@@ -86,12 +86,13 @@ const createIngredientsObject = (ingredientsInput) => {
     ingredientTrim = ingredient.value.trim();
     ingredientsArray.push(ingredientTrim);
     console.log("pushing ingredient inputs to array...");
+    console.log(`${ingredientsArray}`);
   }
   console.log("JSONifying ingredientsArray");
   ingredientsObject = JSON.stringify({ ingredientsArray });
 };
 
-const createRecipeFormHandler = (event) => {
+const createRecipeFormHandler = async (event) => {
   console.log("creating recipe...");
   event.preventDefault();
 
@@ -104,6 +105,7 @@ const createRecipeFormHandler = (event) => {
   const ingredientsInput = document.querySelectorAll(".ingredient");
   const ingredients = createIngredientsObject(ingredientsInput);
   console.log("back into create...formhandler...");
+  console.log("session user_id...");
 
   // Incomplete.... need to create a function to handle the image upload to put in here
   // need to decide at which point we want to include user Id... in this function,
@@ -111,7 +113,7 @@ const createRecipeFormHandler = (event) => {
   /*if (name && category && instructions && ingredients && imageInput) { */
   console.log("all recipe form handler requirements present....");
   console.log("creating POST request for new recipe");
-  const response = fetch("/api/recipes/", {
+  const response = await fetch("/api/recipes/", {
     method: "POST",
     body: JSON.stringify({
       recipeName,

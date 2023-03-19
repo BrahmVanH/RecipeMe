@@ -59,12 +59,12 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const recipeData = await Recipe.create({
-      recipe_name: req.body.recipe_name,
+      recipe_name: req.body.recipeName,
       category: req.body.recipeCategory,
       ingredients: req.body.ingredients,
       instructions: req.body.instructions,
-      user_id: req.session.user_id,
       recipe_image: req.body.imageInput,
+      user_id: req.session.user_id,
     });
     res.status(200).json(recipeData);
   } catch (err) {

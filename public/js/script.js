@@ -5,7 +5,7 @@ const logoutBtn = document.getElementById("logOutBtn");
 // Confirm all functions are performing only one task before deleting
 // this comment, if not the case refactor
 
-const createAccountFormHandler = (event) => {
+const createAccountFormHandler = async (event) => {
   event.preventDefault();
 
   const username = document.getElementById("createUsernameInput").value.trim();
@@ -15,20 +15,17 @@ const createAccountFormHandler = (event) => {
     .value.trim();
 
   if (username && userEmail && userPassword) {
-    const response = fetch("/api/user/", {
+    const response = await fetch("/api/user/", {
       method: "POST",
       body: JSON.stringify({ username, userEmail, userPassword }),
       headers: { "Content-Type": "application/json" },
     });
-  } else {
-    Alert("You must enter a name, email, and password to create an account!");
-  }
-
-  if (response.ok) {
-    // If login was successful, redirect to the profile page
-    document.location.replace("/");
-  } else {
-    Alert(response.statusText);
+    if (response.ok) {
+      // If login was successful, redirect to the profile page
+      document.location.replace("/");
+    } else {
+      Alert(response.statusText);
+    }
   }
 };
 

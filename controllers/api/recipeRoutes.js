@@ -36,7 +36,7 @@ router.get("/:selectedCategory", async (req, res) => {
     });
 
     if (!recipeData) {
-      res.status(404).json({ message: "No recipe found with that ida!" });
+      res.status(404).json({ message: "No recipe found with that category!" });
       return;
     }
 
@@ -46,6 +46,28 @@ router.get("/:selectedCategory", async (req, res) => {
       recipes,
       logged_in: req.session.logged_in,
     });
+    console.log(recipeData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.delete("/:recipeName", async (req, res) => {
+  console.log("delete fetch received...");
+  try {
+    const recipeData = await Recipe.destroy({
+      where: {
+        recipe_name: req.params.recipeName,
+      },
+    });
+
+    if (!recipeData) {
+      res.status(404).json({ message: "No recipe found with that name!" });
+      return;
+    }
+
+    res.status(200).json(recipeData);
+
     console.log(recipeData);
   } catch (err) {
     res.status(500).json(err);

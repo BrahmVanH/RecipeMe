@@ -11,7 +11,7 @@
 
 ## Description
 
-RecipeMe is a site that serves as both a recipe search resource and a personal online cookbook. Users do not have to sign up in order to search for public recipes; however, they will need to create an account if they want to unlock the online cookbook feature. Once signed in to their account, a user can view, add, edit, and delete recipes within their profile landing page. Personal recipes are categorized into Breakfast, Lunch, Dinner, Snack, and Dessert. If the user is unsure of what to cook, they can turn to RecipeMe to serve them a randomly selected recipe in their category of choice. 
+RecipeMe is a personal online cookbook. After a user has created an account and signed in, they can view, add, edit, and delete recipes within their view all recipes page. Personal recipes are categorized into Breakfast, Lunch, Dinner, Snack, Condiments, and Dessert. If the user is unsure of what to cook, they can turn to RecipeMe to remind them of options that fit both their tastes and skill sets.
 
 ## Preview
 

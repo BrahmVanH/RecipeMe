@@ -23,9 +23,20 @@
                                         <option>Condiment</option>
                                     </optgroup>
                                 </select>
+
+                            
+
+                            {{!-- <label class="form-label recipe">Image</label>
+                            <input id="recipeImageUpload" class="form-control" type="file" />     --}}
+
                             <label class="form-label recipe">Image</label>
-                            <input id="recipeImageUpload" class="form-control" type="file" />
-                                <label class="form-label recipe">Ingredients</label>
+                            <form action="/single" method="POST" enctype="multipart/form-data">
+                            <input id="recipeImageUpload" name="recipe_image" class="form-control" type="file"/>
+                            <button type="submit">Upload</button>
+                            <br>
+
+
+                            <label class="form-label recipe">Ingredients</label>
                             <div id="ingredientsInputContainer" class="text-end">
                                 <input class="ingredient form-control form-control-sm" type="text"
                                     style="width: 80%;margin: 2px;"

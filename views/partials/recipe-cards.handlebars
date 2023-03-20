@@ -1,6 +1,6 @@
 {{!-- html for a singular card that will display on the all-recipes page and homepage after user logs in. This connect to "homepage.handlebars" & "all-recipes.handlebars" --}}
 <div class="d-flex flex-row"> 
-  <div class="row m-3 g-4">
+  <div class="row m-3 g-4 pb-5">
     <div class="col">
       <div class="card h-100 shadow">
         <img
@@ -11,13 +11,13 @@
         <div class="card-body">
           <h5 class="card-recipe-title"><strong>{{recipe_name}}</strong></h5>
           <p class="card-recipe-category">{{category}} <i>{{calories/serving}}</i></p>
-          <button type="button" class="navbar-brand" id="viewRecipeBtn" data-toggle="modal" data-target="#viewRecipeModal">View Recipe</button>
+          <button type="button" class="navbar-brand" id="viewRecipeBtn" data-toggle="modal" data-target="#recipe{{id}}Modal">View Recipe</button>
         </div>
       </div>
     </div>
   </div> 
 
-  <div id="recipe{{id}}Modal" data-toggle="modal" data-target="viewRecipeModal" class="modal fade show" role="dialog" tabindex="-1">
+  <div id="recipe{{id}}Modal" data-toggle="modal" data-target="viewRecipeModal" class="modal fade show viewRecipeModal" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">

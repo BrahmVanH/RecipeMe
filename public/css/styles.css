@@ -8,6 +8,8 @@
 
 main {
   background-image: linear-gradient(white, #e3e3e3);
+  margin: 0;
+  padding: 0;
 }
 
 .navbar {
@@ -44,6 +46,20 @@ main {
   color:rgba(44, 44, 44, 0.997);
 }
 
+.navbar-brand:hover {
+  color: blue;
+}
+
+.welcome {
+  font-family: 'Delius swash caps', cursive;
+  font-weight: 600;
+}
+
+
+.welcome:hover {
+  color:rgba(44, 44, 44, 0.997);
+}
+
 .carousel {
   width: 82%;
   margin: 0px;
@@ -63,6 +79,7 @@ main {
   background-color: rgba(255, 255, 255, 0.72);
   color: rgba(44, 44, 44, 0.997);
   text-align: center;
+  border-radius: 15px;
 }
 
 strong {
@@ -76,6 +93,37 @@ strong {
 
 .mb-0 {
   font-size: 18px;
+}
+
+.launch-button {
+  background-color: #10AAFF;
+  /* background-color:#9ecaeb; */
+  border: none;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.904);
+  font-size: 18px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+#addMoreIngredientsButton {
+  background-color: #ffc02cd6;
+  /* background-color:#9ecaeb; */
+  border: none;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  color:rgba(68, 68, 68, 0.997);
+  font-size: 22px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  text-decoration: none;
 }
 
 .modal-header {
@@ -100,11 +148,6 @@ strong {
 
 .sr-only {
   font-weight: 800;
-}
-
-.welcome {
-  font-family: 'Delius swash caps', cursive;
-  font-weight: 600;
 }
 
 .card {
@@ -132,6 +175,24 @@ strong {
   font-size: 16px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.light {
+  /* background-color: #10abff35; */
+  padding-top: 6px;
+  padding-bottom: 26px;
+}
+
+.dark {
+  /* background-color: #ffc02c46; */
+  padding-top: 6px;
+  padding-bottom: 26px;
+}
+
+.form-label-recipe {
+  font-size: 18px;
+  font-weight: 600;
+  color:rgba(44, 44, 44, 0.997);
 }
 
 .filter-buttons {
@@ -172,6 +233,6 @@ strong {
   text-decoration: none;
 }
 
+@media screen and (max-width: 768px) {
 
-
-
+}

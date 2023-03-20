@@ -148,16 +148,10 @@ const addIngredientInputEl = async (event) => {
   );
   const ingredientInput = document.createElement("input");
   ingredientInput.setAttribute("id", "ingredient");
-  ingredientInput.setAttribute(
-    "class",
-    "ingredient form-control form-control-sm w-80"
-  );
+  ingredientInput.setAttribute("class", "ingredient form-control w-100");
   ingredientInput.setAttribute("type", "text");
-  ingredientInput.setAttribute("style", "width: 80%;margin: 2px;");
-  ingredientInput.setAttribute(
-    "class",
-    "ingredient form-control form-control-sm"
-  );
+  ingredientInput.setAttribute("style", "width: 99%;margin: 2px;");
+  ingredientInput.setAttribute("class", "ingredient form-control");
   ingredientInput.setAttribute("placeholder", "quantity and name");
   ingredientsContainer.insertBefore(
     ingredientInput,

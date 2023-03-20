@@ -15,7 +15,7 @@ RecipeMe is a personal online cookbook. After a user has created an account and 
 
 ## Preview
 
-![recipeme_preview](https://user-images.githubusercontent.com/99048123/226432683-d557eead-989d-496b-bc33-4ea43714cc73.png)
+![preview](https://user-images.githubusercontent.com/99048123/226444935-b5dfd138-3098-49de-8521-57a1d611e8bc.png)
 
 
 ## Demo 

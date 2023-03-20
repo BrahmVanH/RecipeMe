@@ -107,7 +107,9 @@ const createIngredientsObject = (ingredientsInput) => {
     console.log(`${ingredientsArray}`);
   }
   console.log("JSONifying ingredientsArray");
-  ingredientsObject = JSON.stringify({ ingredientsArray });
+  //ingredientsObject = JSON.stringify({ ingredientsArray });
+
+  return ingredientsArray
 };
 
 const createRecipeFormHandler = async (event) => {
@@ -115,9 +117,7 @@ const createRecipeFormHandler = async (event) => {
   event.preventDefault();
 
   const recipeName = document.getElementById("recipeNameInput").value.trim();
-  const recipeCategory = document
-    .getElementById("recipeCategorySelectEl")
-    .value.trim();
+  const recipeCategory = document.getElementById("recipeCategorySelectEl").value.trim();
   const imageInput = document.getElementById("recipeImageUpload").value.trim();
   const instructions = document.getElementById("instructionInput").value.trim();
   const ingredientsInput = document.querySelectorAll(".ingredient");
@@ -125,10 +125,7 @@ const createRecipeFormHandler = async (event) => {
   console.log("back into create...formhandler...");
   console.log("session user_id...");
 
-  // Incomplete.... need to create a function to handle the image upload to put in here
-  // need to decide at which point we want to include user Id... in this function,
-  // Or in the route itself.
-  /*if (name && category && instructions && ingredients && imageInput) { */
+ 
   console.log("all recipe form handler requirements present....");
   console.log("creating POST request for new recipe");
   const response = await fetch("/api/recipes/", {

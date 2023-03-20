@@ -11,7 +11,7 @@ router.post("/", async (req, res) => {
     });
 
     // saving the input user data to session, marking user as logged in
-   /* req.session.save(() => {
+    /* req.session.save(() => {
       // Not sure if this ... = userData.id is correct.
       // If its pulling 'userData.id' from the req.body,
       // There wont be a user id yet, as sequelize automatically
@@ -57,7 +57,7 @@ router.post("/login", async (req, res) => {
     req.session.save(() => {
       console.log("saving session...");
       req.session.user_id = userData.id;
-      req.session.username = userData.name
+      req.session.username = userData.name;
       console.log(`username: ${userData.name}`);
       req.session.logged_in = true;
       console.log(`logged_in`);

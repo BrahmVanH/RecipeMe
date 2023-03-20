@@ -4,7 +4,7 @@
 // });
 
 $("#viewRecipeBtn").click(function () {
-  $("#viewRecipeModal").click();
+  $(".viewRecipeModal").click();
 });
 
 $(".btn-close").click(function () {
@@ -12,7 +12,7 @@ $(".btn-close").click(function () {
 });
 
 $(".btn").click(function () {
-  $("#viewRecipeModal").click();
+  $(".viewRecipeModal").click();
 });
 
 $("#logInBtn").click(function () {

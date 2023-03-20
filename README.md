@@ -20,6 +20,8 @@ RecipeMe is a personal online cookbook. After a user has created an account and 
 
 ## Demo 
 
+Watch the demo [HERE](https://watch.screencastify.com/v/PQR8vGTsJaiKbuF31iVj)! 
+
 ## Installation
 - Clone this repository to your terminal and then use `npm i` to install dependencies 
 

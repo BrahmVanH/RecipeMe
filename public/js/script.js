@@ -109,7 +109,7 @@ const createIngredientsObject = (ingredientsInput) => {
   console.log("JSONifying ingredientsArray");
   //ingredientsObject = JSON.stringify({ ingredientsArray });
 
-  return ingredientsArray
+  return ingredientsArray;
 };
 
 const createRecipeFormHandler = async (event) => {
@@ -117,7 +117,9 @@ const createRecipeFormHandler = async (event) => {
   event.preventDefault();
 
   const recipeName = document.getElementById("recipeNameInput").value.trim();
-  const recipeCategory = document.getElementById("recipeCategorySelectEl").value.trim();
+  const recipeCategory = document
+    .getElementById("recipeCategorySelectEl")
+    .value.trim();
   const imageInput = document.getElementById("recipeImageUpload").value.trim();
   const instructions = document.getElementById("instructionInput").value.trim();
   const ingredientsInput = document.querySelectorAll(".ingredient");
@@ -125,7 +127,6 @@ const createRecipeFormHandler = async (event) => {
   console.log("back into create...formhandler...");
   console.log("session user_id...");
 
- 
   console.log("all recipe form handler requirements present....");
   console.log("creating POST request for new recipe");
   const response = await fetch("/api/recipes/", {

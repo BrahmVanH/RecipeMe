@@ -25,25 +25,22 @@ const sess = {
   }),
 };
 
+// const multer = require("multer");
 
+// const fileStorageEngine = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "./public/images");
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, file.originalname);
+//   },
+// });
 
-const multer = require("multer");
+// const upload = multer({ storage: fileStorageEngine });
 
-const fileStorageEngine = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./public/images"); 
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
-
-const upload = multer({ storage: fileStorageEngine });
-
-app.post("/single", upload.single("recipe_image"), (req, res) => {
-  console.log(req.file.path) 
-});
-
+// app.post("/single", upload.single("recipe_image"), (req, res) => {
+//   console.log(req.file.path)
+// });
 
 app.use(session(sess));
 

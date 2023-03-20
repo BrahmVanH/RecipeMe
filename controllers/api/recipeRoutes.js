@@ -111,7 +111,8 @@ router.post("/", async (req, res) => {
       category: req.body.recipeCategory,
       ingredients: req.body.ingredients,
       instructions: req.body.instructions,
-      recipe_image: req.body.imageInput,
+      // temp commenting out recipe_image to avoid broken image icon while upload isn't working
+      // recipe_image: req.body.imageInput,
       user_id: req.session.user_id,
     });
     res.status(200).json(recipeData);

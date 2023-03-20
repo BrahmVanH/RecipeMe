@@ -5,6 +5,7 @@
 * [Preview](#preview)
 * [Demo](#demo)
 * [Installation](#installation)
+* [Technology](#technology)
 * [Credit](#credit)
 * [License](#license)
 

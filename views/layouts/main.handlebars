@@ -18,12 +18,12 @@
 <body>
   <header>
     {{!-- TODO: Create header --}}
-    <nav class="navbar">
+    <nav class="navbar d-flex flex-wrap">
       <a href="/" class="go-home"></a>
       {{!-- navbar links that display on the homepage--}}
 
       {{#if logged_in}}
-      <div class="navbar-brand">
+      <div class="navbar-brand d-flex flex-wrap align-content-start">
         <div class="navbar-brand px-2 welcome" href="#">Hello, {{username}}!</div>
         <button type="button" class="navbar-brand" id="createRecipeBtn" data-toggle="modal" data-target="#createRecipeModal">Create a Recipe</button>
 
@@ -55,7 +55,7 @@
   <footer>   
     <div class="footer m-0">
       <div class="row h-100 m-0">      
-        <div class="col align-self-center align-items-center">
+        <div class="col d-flex align-self-center align-items-center">
           <div>
             <a href="/" class="recipe-me p-3">RecipeMe</a>
           </div>

@@ -59,7 +59,7 @@
 </div>
 
 {{!--{{#if loggedIn}} --}}
-<div class="container">
+<div class="container d-flex flex-wrap">
   {{#each recipes as |recipe|}} {{! #each helps to over things }}
   {{> recipe-cards}} {{! forward information into a partial, the "recipe-cards" handlebars file }}
   {{/each}}

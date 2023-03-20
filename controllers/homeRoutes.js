@@ -4,9 +4,6 @@ const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    // Decide what data we'd like to include from our API/other APIs
-    // Render those items to homepage
-
     const recipeData = await Recipe.findAll({
       offset: 1,
       limit: 3,

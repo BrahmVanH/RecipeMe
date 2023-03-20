@@ -11,7 +11,7 @@
 
 ## Description
 
-RecipeMe is a personal online cookbook. After a user has created an account and signed in, they can view, add, edit, and delete recipes within their view all recipes page. Personal recipes are categorized into Breakfast, Lunch, Dinner, Snack, Condiments, and Dessert. If the user is unsure of what to cook, they can turn to RecipeMe to remind them of options that fit both their tastes and skill sets.
+RecipeMe is a personal online cookbook. After a user has created an account and signed in, they can view and add recipes within their view all recipes page. Personal recipes are categorized into Breakfast, Lunch, Dinner, Snack, Condiments, and Dessert. If the user is unsure of what to cook, they can turn to RecipeMe to remind them of options that fit both their tastes and skill sets.
 
 ## Preview
 
@@ -30,6 +30,10 @@ Watch the demo [HERE](https://watch.screencastify.com/v/PQR8vGTsJaiKbuF31iVj)!
 - Seed the database with `npm run seed`
 
 - Start the server with `npm start`
+
+## Technology
+
+- Technologies used in this project include MySQL, Handlebars, JavaScript, CSS, Heroku, Figma, Multer, Adobe Illustrator, and Bootstrap Studio 
 
 ## Credit 
 This is a collaborative project as part of a full-stack coding bootcamp. Contributing developers are:

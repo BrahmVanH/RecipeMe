@@ -7,6 +7,7 @@ const dinnerBtn = document.getElementById("dinnerFilter");
 const dessertBtn = document.getElementById("dessertFilter");
 const snacksBtn = document.getElementById("snacksFilter");
 const condimentsBtn = document.getElementById("condimentsFilter");
+const mainHeader = document.getElementby;
 
 // Confirm all functions are performing only one task before deleting
 // this comment, if not the case refactor
@@ -27,11 +28,25 @@ const createAccountFormHandler = async (event) => {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      // If login was successful, redirect to the profile page
-      document.location.replace("/");
+      loginFetch(username, userPassword);
+      // If login was successful, refresh page to show logged_in content
+      setTimeout(reloadPage, 2000);
     } else {
       Alert(response.statusText);
     }
+  }
+};
+
+const loginFetch = async (username, userPassword) => {
+  const response = await fetch("/api/user/login", {
+    method: "POST",
+    body: JSON.stringify({ username, userPassword }),
+    headers: { "Content-Type": "application/json" },
+  });
+  if (response.ok) {
+    // If login was successful, redirect to the profile page
+  } else {
+    Alert(response.statusText);
   }
 };
 

@@ -1,5 +1,5 @@
 const User = require("./User");
-const Recipe = require("./Recipe");
+const Recipe = require("./recipe");
 
 // User can have many recipes; if user is deleted, their recipes are deleted
 User.hasMany(Recipe, {

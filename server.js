@@ -11,10 +11,10 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ 
-  // extname:'handlebars',
-  // layoutsDir: 'views/layouts',
-  // defaultLayout: 'main',
-  // partialsDir: ['views/partials']
+  extname:'handlebars',
+  layoutsDir: 'views/layouts',
+  defaultLayout: 'main',
+  partialsDir: ['views/partials']
 });
 
 const sess = {

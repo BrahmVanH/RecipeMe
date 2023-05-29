@@ -1,6 +1,7 @@
 const createAccountBtn = document.getElementById("createAccountBtn");
 const saveRecipeBtn = document.getElementById("saveRecipeBtn");
 const logoutBtn = document.getElementById("logOutBtn");
+const searchBtn = document.getElementById("searchBtn");
 const breakfastBtn = document.getElementById("breakfastFilter");
 const lunchBtn = document.getElementById("lunchFilter");
 const dinnerBtn = document.getElementById("dinnerFilter");
@@ -96,6 +97,23 @@ const logoutButtonHandler = (event) => {
   logUserOut();
   setTimeout(reloadPage, 1000);
 };
+
+const handleSearchBar = async (event) => {
+  event.preventDefault();
+  console.log("click")
+  const recipeName = document.getElementById("userSearchInput").value;
+  console.log(recipeName);
+    if (recipeName) {
+    const response = await fetch(`/api/search/${recipeName}`)
+    if (response.ok) {
+      console.log(response);
+      // If login was successful, redirect to the profile page
+    } else {
+     
+      console.log("Something went wrong in the search script");
+    }
+  }
+}
 
 const createIngredientsObject = (ingredientsInput) => {
   console.log("creating ingredients array...");
@@ -225,12 +243,14 @@ document
   .querySelector("#addMoreIngredientsButton")
   .addEventListener("click", addIngredientInputEl);
 
+document
+  .querySelector('#searchBtn')
+  .addEventListener("click", handleSearchBar);
+
 saveRecipeBtn.addEventListener("click", createRecipeFormHandler);
 
 createAccountBtn.addEventListener("click", createAccountFormHandler);
-
 logoutBtn.addEventListener("click", logoutButtonHandler);
-
 breakfastBtn.addEventListener("click", identifyCategorySearch);
 lunchBtn.addEventListener("click", identifyCategorySearch);
 dinnerBtn.addEventListener("click", identifyCategorySearch);

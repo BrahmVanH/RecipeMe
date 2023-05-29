@@ -26,6 +26,10 @@ main {
   justify-content: space-between;
 }
 
+.navbar #searchBar {
+  border-radius: 15px;
+}
+
 .go-home {
   display: flex;
   justify-content: start;
@@ -45,6 +49,18 @@ main {
   border: none;
   opacity: .90;
   color:rgba(44, 44, 44, 0.997);
+}
+
+form .navbar-brand {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 2;
+  height: 46px;
+  font-size: 18px;
+  background-color: #FFBE2C;
+  border: none;
+  opacity: .90;
+  color: rgba(44, 44, 44, 0.997);
 }
 
 .navbar-brand:hover {

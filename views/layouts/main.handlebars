@@ -20,8 +20,10 @@
     {{!-- TODO: Create header --}}
     <nav class="navbar d-flex flex-wrap">
       <a href="/" class="go-home"></a>
-      {{!-- navbar links that display on the homepage--}}
-
+      <form class="navbar-brand" id="searchBar">
+        <input type="text" id="userSearchInput">
+        <button type="submit" class"navbar-brand" id="searchBtn">Search</button>
+      </form>
       {{#if logged_in}}
       <div class="navbar-brand d-flex flex-wrap align-content-start">
         <div class="navbar-brand px-2 welcome" href="#">Hello, {{username}}!</div>

@@ -1,41 +1,51 @@
 const router = require('express').Router();
-const verifyEmailAddress = require('../../utils/verify');
+const checkEmailIsValid = require('../../utils/verify');
+
 const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
+	let validityResponse = null;
 	try {
-		const { emailValidationResponse } = await verifyEmailAddress(
-			req.body.userEmail
-		);
-
-		switch (emailValidationResponse) {
-			case emailValidationResponse === 'OK':
-				// async await function to create a new user in our database
-				const userData = await User.create({
-					name: req.body.username,
-					email: req.body.userEmail,
-					password: req.body.userPassword,
+		const validateEmail = await checkEmailIsValid(req.body.userEmail);
+		// Validate email address for SMTP capability before creating user
+		if (
+			req.body.userEmail &&
+			req.body.userEmail != null &&
+			validateEmail === true
+		) {
+			const userData = await User.create({
+				name: req.body.username,
+				email: req.body.userEmail,
+				password: req.body.userPassword,
+			});
+			res.status(200).json(userData);
+		} else if (
+			req.body.userEmail &&
+			req.body.userEmail != null &&
+			validateEmail === false
+		) {
+			console.log('email address is not valid...');
+			res
+				.status(400)
+				.json({
+					message:
+						'The email address you have provided is not valid, please enter another email address or try again.',
 				});
-				// User will be logged-in in client-side script after User.create fetch is called
-				res.status(200).json(userData);
-				break;
-			case emailValidationResponse === 'INVALID':
-				alert('Please enter a valid email address!');
-				console.log('email verification returned invalid');
-				break;
-			case emailValidationResponse === 'ERROR':
-				console.log('Email-verifier returned an error');
-				alert(
-					'There was an error in validating your email address. Please try again!'
-				);
+		} else {
+			console.log(
+				'Something haas gone wrong in userRoute while validating user email...'
+			);
+			return;
 		}
+
+		return validityResponse;
+		// User will be logged-in in client-side script after User.create fetch is called
 	} catch (err) {
-		res.status(400).json(err);
+		console.error('Error validating email:', err);
 	}
 });
 
 router.post('/login', async (req, res) => {
-	console.log('logging in...');
 	try {
 		// Async await function to find existing user matching email input
 		const userData = await User.findOne({ where: { name: req.body.username } });
@@ -64,12 +74,9 @@ router.post('/login', async (req, res) => {
 
 		// If above matches, mark user as logged in in db
 		req.session.save(() => {
-			console.log('saving session...');
 			req.session.user_id = userData.id;
 			req.session.username = userData.name;
-			console.log(`username: ${userData.name}`);
 			req.session.logged_in = true;
-			console.log(`logged_in`);
 
 			res.json({ user: userData, message: 'Welcome!' });
 		});

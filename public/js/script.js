@@ -13,6 +13,12 @@ const mainHeader = document.getElementby;
 // Confirm all functions are performing only one task before deleting
 // this comment, if not the case refactor
 
+const clearTextInput = () => {
+	document.getElementById('createUsernameInput').value = '';
+	document.getElementById('emailInput').value = '';
+	document.getElementById('createPasswordInput').value = '';
+};
+
 const createAccountFormHandler = async (event) => {
 	event.preventDefault();
 
@@ -28,17 +34,22 @@ const createAccountFormHandler = async (event) => {
 			body: JSON.stringify({ username, userEmail, userPassword }),
 			headers: { 'Content-Type': 'application/json' },
 		});
+		console.log(response);
 		if (response.ok) {
 			loginFetch(username, userPassword);
 			// If login was successful, refresh page to show logged_in content
 			setTimeout(reloadPage, 2000);
+		} else if (!response.ok) {
+			clearTextInput();
+			alert('Invalid email address, please try again!');
+
+			return;
 		} else {
 			alert(response.statusText);
-      return;
+			return;
 		}
 	} else if (!username || !userEmail || !userPassword) {
 		alert('You must fill all fields to create an account!');
-		console.log('Signup form is missing a username, email, password, or combination');
 	}
 };
 

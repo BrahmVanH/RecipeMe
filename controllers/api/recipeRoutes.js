@@ -15,11 +15,11 @@ router.get("/", async (req, res) => {
     });
 
     const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
-
+    console.log(recipes);
     res.render("all-recipes", {
       recipes,
-      logged_in: req.session.logged_in,
       username: req.session.username,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(400).json(err);

@@ -143,6 +143,14 @@ strong {
   text-decoration: none;
 }
 
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* Adjust column width as needed */
+  grid-gap: 20px;
+  /* Adjust gap size as needed */
+}
+
 .modal-header {
   display: flex;
   align-items: center;
@@ -177,7 +185,7 @@ strong {
 }
 
 .card-recipe-category {
-  font-size: 600;
+  font-size: 1rem;
   font-style: italic;
 }
 

@@ -1,0 +1,8 @@
+{{!-- html for food categories to filter by. Includes spots to place in the cards from recipe-cards.handlebars --}}
+
+
+    <div class="card-container"  style="height: 80vh;">
+        {{#each results as |result|}} 
+        {{> api-cards}} 
+        {{/each}}
+    </div>

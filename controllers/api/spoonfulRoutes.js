@@ -7,30 +7,36 @@ const fetch = (...args) =>
 	import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const searchOptions = {
-	method: 'GET'
+	method: 'GET',
 };
 
 // User can search recipe by common name
 // i.e. 'spaghetti', 'tacos'
 
-router.get('/:recipeName', async (req, res) => {
-  const searchUrl = `${spoonacularBaseUrl}?apiKey=${process.env.API_KEY}&query=${req.params.recipeName}`;
-	console.log(searchUrl);
+router.get('/:searchRecipeName', async (req, res) => {
+	const searchUrl = `${spoonacularBaseUrl}?apiKey=${process.env.API_KEY}&query=${req.params.searchRecipeName}&addRecipeInformation=true&addRecipeNutrition=true&addRecipeInformation=true`;
+	let recipes = '';
 	try {
 		const response = await fetch(searchUrl, searchOptions);
-		const json = await response.json();
-		console.log(json);
-		const spoonRecipes = json.map((spoonRecipe) =>
-			spoonRecipe.get({ plain: true })
-		);
+		const data = await response.json();
+		const { results } = data;
 
-		res.render('all-recipes', {
-			spoonRecipes,
-			// do we want this feature to require logging in?
-			// logged_in: req.session.logged_in
-		});
+		if (results) {
+			const renderWithAbsoluteUrl = results.map((result) => ({
+				...results,
+				image: `${results.image}`,
+			}));
+			res.render('spoon-recipes', {
+				results,
+				logged_in: req.session.logged_in,
+				username: req.session.username,
+			});
+		} else {
+			console.log('no results to render');
+		}
 	} catch (err) {
-		res.status(500).json(err);
+		console.error(err);
+		res.status(400).json(err);
 	}
 });
 

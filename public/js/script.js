@@ -8,7 +8,6 @@ const dinnerBtn = document.getElementById('dinnerFilter');
 const dessertBtn = document.getElementById('dessertFilter');
 const snacksBtn = document.getElementById('snacksFilter');
 const condimentsBtn = document.getElementById('condimentsFilter');
-const mainHeader = document.getElementby;
 
 // Confirm all functions are performing only one task before deleting
 // this comment, if not the case refactor
@@ -19,6 +18,8 @@ const clearTextInput = () => {
 	document.getElementById('createPasswordInput').value = '';
 };
 
+
+
 const createAccountFormHandler = async (event) => {
 	event.preventDefault();
 
@@ -28,29 +29,42 @@ const createAccountFormHandler = async (event) => {
 		.getElementById('createPasswordInput')
 		.value.trim();
 
-	if (username && userEmail && userPassword) {
-		const response = await fetch('/api/user/', {
-			method: 'POST',
-			body: JSON.stringify({ username, userEmail, userPassword }),
-			headers: { 'Content-Type': 'application/json' },
-		});
-		console.log(response);
-		if (response.ok) {
-			loginFetch(username, userPassword);
-			// If login was successful, refresh page to show logged_in content
-			setTimeout(reloadPage, 2000);
-		} else if (!response.ok) {
-			clearTextInput();
-			alert('Invalid email address, please try again!');
+	try {
+		
+		if (username && userEmail && userPassword) {
+			const response = await fetch('/api/user/', {
+				method: 'POST',
+				body: JSON.stringify({ username, userEmail, userPassword }),
+				headers: { 'Content-Type': 'application/json' },
+			});
+			
+			if (response.ok) {
 
-			return;
-		} else {
-			alert(response.statusText);
-			return;
-		}
-	} else if (!username || !userEmail || !userPassword) {
+				loginFetch(username, userPassword);
+				// If login was successful, refresh page to show logged_in content
+				setTimeout(reloadPage, 2000);
+
+			} else if (!response.ok) {
+
+				clearTextInput();
+				throw new Error(response.statusText);
+				// alert('Invalid email address, please try again!');
+				alert(response.statusText);
+
+			} else {
+
+				throw new Error(response.statusText);
+
+				alert(response.statusText);
+				return;
+			}
+		} else if (username === '' || userEmail === '' || userPassword === '') {
 		alert('You must fill all fields to create an account!');
 	}
+} catch (err) {
+	console.error(err);
+	alert("Something went wrong in signup. Please confirm all fields are correct and try again");
+}
 };
 
 const loginFetch = async (username, userPassword) => {

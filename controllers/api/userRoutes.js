@@ -1,10 +1,9 @@
 const router = require('express').Router();
-const checkEmailIsValid = require('../../utils/verify');
+const checkEmailIsValid = require('../../utils/verifyEmail');
 
 const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
-	let validityResponse = null;
 	try {
 		const validateEmail = await checkEmailIsValid(req.body.userEmail);
 		// Validate email address for SMTP capability before creating user
@@ -38,10 +37,19 @@ router.post('/', async (req, res) => {
 			return;
 		}
 
-		return validityResponse;
 		// User will be logged-in in client-side script after User.create fetch is called
 	} catch (err) {
-		console.error('Error validating email:', err);
+		if (
+			err.name === 'SequelizeUniqueConstraintError' ||
+			err.name === 'SequelizeValidationError'
+		) {
+			console.error('Duplicate entry error:', err.errors);
+			res.status(409).json({ error: 'Duplicate entry error' });
+		} else {
+			// Handle other types of errors
+			console.error('An error occurred:', err);
+			res.status(500).json({ error: 'Internal server error' });
+		}
 	}
 });
 

@@ -1,10 +1,10 @@
 {{!-- html for a singular card that will display on the all-recipes page and homepage after user logs in. This connect to "homepage.handlebars" & "all-recipes.handlebars" --}}
 <div class="d-flex flex-row"> 
   <div class="row m-3 g-4 pb-5">
-    <div class="col">
-      <div class="card h-100 shadow">
+    <div style="max-height: 25%">
+      <div class="card shadow">
         <img
-          src="/images/{{recipe_image}}"
+          src=`/images/{{recipe_image}}`
           class="card-img-top"
           alt="..."
         />
@@ -17,7 +17,7 @@
     </div>
   </div> 
 
-  <div id="recipe{{id}}Modal" data-toggle="modal" data-target="viewRecipeModal" class="modal fade show viewRecipeModal" role="dialog" tabindex="-1">
+  <div id=`recipe{{id}}Modal` data-toggle="modal" data-target="viewRecipeModal" class="modal fade show viewRecipeModal" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -31,7 +31,7 @@
                 <i class="recipe-category mb-4">{{category}}</i>
                 <div class="recipe-image d-flex justify-content-center">
                   <img
-                    src="/images/{{recipe_image}}"
+                    src=`/images/{{recipe_image}}`
                     class="recipe-image"
                     alt="..."
                   />

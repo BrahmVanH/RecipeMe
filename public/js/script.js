@@ -104,7 +104,7 @@ const loginFormHandler = async (event) => {
 			document.location.replace('/');
 			console.log('Going back home...');
 		} else {
-			Alert(response.statusText);
+			console.log(response.statusText);
 		}
 	}
 };
@@ -129,17 +129,20 @@ const logoutButtonHandler = (event) => {
 
 const handleSearchBar = async (event) => {
 	event.preventDefault();
-	console.log('click');
-	const recipeName = document.getElementById('userSearchInput').value;
-	console.log(recipeName);
-	if (recipeName) {
-		const response = await fetch(`/api/search/${recipeName}`);
-		if (response.ok) {
-			console.log(response);
-			// If login was successful, redirect to the profile page
-		} else {
-			console.log('Something went wrong in the search script');
+	const searchRecipeName = document.getElementById('userSearchInput').value;
+	try {
+
+		if (searchRecipeName) {
+			const response = await fetch(`/api/search/${searchRecipeName}`);
+			if (response.ok) {
+				setTimeout(window.location.replace(`api/search/${searchRecipeName}`), 2000);
+				// If login was successful, redirect to the profile page
+			} else {
+				console.log('Something went wrong in the search script');
+			}
 		}
+	} catch (err) {
+		console.error(err);
 	}
 };
 

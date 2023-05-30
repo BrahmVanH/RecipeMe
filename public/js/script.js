@@ -135,7 +135,7 @@ const handleSearchBar = async (event) => {
 		if (searchRecipeName) {
 			const response = await fetch(`/api/search/${searchRecipeName}`);
 			if (response.ok) {
-				setTimeout(window.location.replace(`api/search/${searchRecipeName}`), 2000);
+				setTimeout(window.location.replace(`/api/search/${searchRecipeName}`), 3000);
 				// If login was successful, redirect to the profile page
 			} else {
 				console.log('Something went wrong in the search script');

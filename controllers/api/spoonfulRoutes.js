@@ -16,16 +16,13 @@ const searchOptions = {
 router.get('/:searchRecipeName', async (req, res) => {
 	const searchUrl = `${spoonacularBaseUrl}?apiKey=${process.env.API_KEY}&query=${req.params.searchRecipeName}&addRecipeInformation=true&addRecipeNutrition=true&addRecipeInformation=true`;
 	let recipes = '';
+
 	try {
 		const response = await fetch(searchUrl, searchOptions);
 		const data = await response.json();
 		const { results } = data;
 
 		if (results) {
-			const renderWithAbsoluteUrl = results.map((result) => ({
-				...results,
-				image: `${results.image}`,
-			}));
 			res.render('spoon-recipes', {
 				results,
 				logged_in: req.session.logged_in,
@@ -33,6 +30,11 @@ router.get('/:searchRecipeName', async (req, res) => {
 			});
 		} else {
 			console.log('no results to render');
+			res.render('spoon-recipes', {
+				results: [], // Empty array if there are no results
+				logged_in: req.session.logged_in,
+				username: req.session.username,
+			});
 		}
 	} catch (err) {
 		console.error(err);
